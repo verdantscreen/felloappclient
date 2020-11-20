@@ -38,15 +38,15 @@ const Sitebar = (props) => {
             <NavbarToggler onClick={toggle} />
             <Collapse isOpen={isOpen} navbar>
              <Nav className="mr-auto" navbar>
-            <NavItem href="/"><NavLink style={{color: "#292a2b"}}>Sign Up</NavLink></NavItem>
-            <NavItem href="/"><NavLink style={{color: "#292a2b"}}>Sign In</NavLink></NavItem>
-            
+            {/* <NavItem href="/"><NavLink style={{color: "#292a2b"}}>Sign Up</NavLink></NavItem>
+            <NavItem href="/"><NavLink style={{color: "#292a2b"}}>Sign In</NavLink></NavItem> */}
+            <NavbarText><span className="nbt">Wherever you go, </span><span className="nbt"> fello !</span></NavbarText>
             <NavItem>
-            {localStorage.getItem('token') !== null ? <NavLink href="/search"><span className="nbt">Recipe Search</span></NavLink>
+            {localStorage.getItem('token') !== null ? <NavLink href="/search"><span className="nbt">My Trips</span></NavLink>
             : null}
             </NavItem>
             <NavItem>
-            {localStorage.getItem('token') !== null ? <NavLink href="/list"><span className="span">Shopping List</span></NavLink>
+            {localStorage.getItem('token') !== null ? <NavLink href="/list"><span className="span">Search</span></NavLink>
             : null}
             </NavItem>
           </Nav>
@@ -60,11 +60,11 @@ const Sitebar = (props) => {
             borderRadius: '10px',
             transition: 'transform 0.3s ease',
             boxShadow: '5px 5px 5px 0px rgba(231,23,232,0.3)',
-            border: 'none' }} onClick={logOut}>Log out</Button> 
+            border: 'none' }} onClick={logOut}>Sign Out</Button> 
             : null}
 
             </NavLink>
-          <NavbarText><span className="nbt">Finding recipes with </span><span className="nbt">eaze.</span></NavbarText>
+
             </Collapse>
         </Navbar>
         </div>
