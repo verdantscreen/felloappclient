@@ -1,20 +1,6 @@
 import React, {useState} from 'react';
 import {Form, FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody} from 'reactstrap';
-// import {makeStyles} from '@material-ui/core';
 import "bootstrap/dist/css/bootstrap.min.css";
-
-
-// const useStyles = makeStyles((theme) => ({
-//   root: {
-//       fontFamily: "Grandstander"
-//   },
-//   button1: {
-//     fontFamily: "Grandstander",
-//     color: "#18E817",
-//     backgroundColor: "#E717E8"
-//   }
-// }));
-
 
 function Register(props) {
   const {
@@ -28,14 +14,15 @@ function Register(props) {
 
   const toggle = () => setRegisterModal(!registerModal);
 
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   let handleSubmit = (event) => {
     event.preventDefault();
-    fetch('https://group-4-recipeazy-server.herokuapp.com/user/register', {
+    fetch('https://fello-server.herokuapp.com/user/signup', {
       method: 'POST',
-      body: JSON.stringify({ user: { email: email, password: password } }),
+      body: JSON.stringify({ user: { name: name, email: email, password: password } }),
       headers: new Headers({
         'Content-Type': 'application/json'
       })
@@ -61,6 +48,10 @@ function Register(props) {
         <ModalHeader style={{fontFamily: 'Grandstander'}} toggle={toggle}>Sign up to save your shopping list!</ModalHeader>
         <ModalBody>
           <Form onSubmit={handleSubmit}>
+          <FormGroup>
+              <Label htmlFor="name" style={{fontFamily: 'Roboto'}}>Name: </Label>
+              <Input onChange={(e) => setName(e.target.value)} name="name" type="name" value={name} />
+            </FormGroup>
             <FormGroup>
               <Label htmlFor="email" style={{fontFamily: 'Roboto'}}>Email: </Label>
               <Input onChange={(e) => setEmail(e.target.value)} name="email" type="email" value={email} />

@@ -1,24 +1,8 @@
 import React, {useState} from 'react';
 import {Form, FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody} from 'reactstrap';
-// import {makeStyles} from '@material-ui/core';
 import "bootstrap/dist/css/bootstrap.min.css";
 
-
-// const useStyles = makeStyles((theme) => ({
-//   root: {
-
-//       fontFamily: "Grandstander",
-
-//   },
-//   button1: {
-//     fontFamily: "Grandstander",
-//     color: "#18E817",
-//     backgroundColor: "#E717E8"
-//   }
-
-// }));
-
-const Login = (props) => {
+const Signin = (props) => {
   const {
     buttonLabel,
     className
@@ -29,13 +13,13 @@ const Login = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const [loginModal, setLoginModal] = useState(false);
+  const [signinModal, setSigninModal] = useState(false);
 
-  const toggle = () => setLoginModal(!loginModal);
+  const toggle = () => setSigninModal(!signinModal);
 
   let handleSubmit = (event) => {
     event.preventDefault();
-    fetch('https://group-4-recipeazy-server.herokuapp.com/user/login', {
+    fetch('https://fello-server.herokuapp.com/user/signin', {
         method: 'POST',
         body: JSON.stringify({user:{email: email, password: password}}),
         headers: new Headers({
@@ -58,7 +42,7 @@ const Login = (props) => {
         border: 'none'
         }} id="buttonHover" onClick={toggle}>Sign In{buttonLabel}</Button>
         : null}
-      <Modal isOpen={loginModal} toggle={toggle} className={className}>
+      <Modal isOpen={signinModal} toggle={toggle} className={className}>
         <ModalHeader toggle={toggle} style={{fontFamily: 'Grandstander'}}>Welcome back!</ModalHeader>
         <ModalBody>
         <Form onSubmit={handleSubmit}>
@@ -73,15 +57,15 @@ const Login = (props) => {
                 </FormGroup>
                 <FormGroup>
                 <Button style={{backgroundColor: '#ff7f50',
-                color: 'black',
+                color: '#292a2b',
                 borderRadius: '10px',
                 transition: 'transform 0.3s ease',
                 boxShadow: '5px 5px 5px 0px rgba(85,61,52,0.3)',
                 border: 'none'
-                }} id="buttonHover" onClick={toggle} type="submit">Login</Button>{' '}
+                }} id="buttonHover" onClick={toggle} type="submit">Sign In</Button>
                 <Button id="buttonHover" style=
                 {{borderRadius: '10px',
-                color: "black",
+                color: "#292a2b",
                 fontFamily: 'Grandstander',
                 transition: 'transform 0.3s ease',
                 boxShadow: '5px 5px 5px 0px rgba(85,61,52,0.3)',
@@ -95,4 +79,4 @@ const Login = (props) => {
   );
 }
 
-export default Login;
+export default Signin;
