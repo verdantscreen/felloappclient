@@ -19,7 +19,7 @@ const Signin = (props) => {
 
   let handleSubmit = (event) => {
     event.preventDefault();
-    fetch('https://fello-server.herokuapp.com/user/signin', {
+    fetch('http://localhost:3001/user/signin', {
         method: 'POST',
         body: JSON.stringify({user:{email: email, password: password}}),
         headers: new Headers({
@@ -28,7 +28,7 @@ const Signin = (props) => {
     }).then(
         (response) => response.json()
     ).then((data) => {
-        props.updateToken(data.sessionToken)
+        props.updateToken(data.token)
     })
 }
 
@@ -40,16 +40,15 @@ const Signin = (props) => {
         transition: 'transform 0.3s ease',
         boxShadow: '5px 5px 5px 0px rgba(85,61,52,0.3)',
         border: 'none'
-        }} id="buttonHover" onClick={toggle}>Sign In{buttonLabel}</Button>
+        }} id="buttonHover" onClick={toggle}>Sign In {buttonLabel}</Button>
         : null}
-      <Modal isOpen={signinModal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle} style={{fontFamily: 'Grandstander'}}>Welcome back!</ModalHeader>
+      <Modal isOpen={signinModal} toggle={toggle} className={className} >
+        <ModalHeader toggle={toggle} style={{fontFamily: 'Corben'}}>Welcome back!</ModalHeader>
         <ModalBody>
         <Form onSubmit={handleSubmit}>
                 <FormGroup>
                     <Label htmlFor="email" style={{fontFamily: 'Roboto'}}>Email: </Label>
                     <Input onChange={(e) => setEmail(e.target.value)} type="email" name="email" value={email}/>
-                    
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="password" style={{fontFamily: 'Roboto'}}>Password: </Label>
@@ -58,15 +57,18 @@ const Signin = (props) => {
                 <FormGroup>
                 <Button style={{backgroundColor: '#ff7f50',
                 color: '#292a2b',
+                fontFamily: 'Corben',
+                marginRight: '5px',
                 borderRadius: '10px',
                 transition: 'transform 0.3s ease',
                 boxShadow: '5px 5px 5px 0px rgba(85,61,52,0.3)',
                 border: 'none'
-                }} id="buttonHover" onClick={toggle} type="submit">Sign In</Button>
+                }} id="buttonHover" onClick={toggle} type="submit">Sign In</Button>{' '}
                 <Button id="buttonHover" style=
                 {{borderRadius: '10px',
                 color: "#292a2b",
-                fontFamily: 'Grandstander',
+                fontFamily: 'Corben',
+                marginLeft: '5px',
                 transition: 'transform 0.3s ease',
                 boxShadow: '5px 5px 5px 0px rgba(85,61,52,0.3)',
                 border: 'none'}}

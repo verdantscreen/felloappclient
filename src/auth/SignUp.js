@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Form, FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody} from 'reactstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
 
-function Register(props) {
+function Signup(props) {
   const {
     buttonLabel,
     className
@@ -10,9 +10,9 @@ function Register(props) {
 
 //   const classes = useStyles();
 
-  const [registerModal, setRegisterModal] = useState(false);
+  const [signupModal, setSignupModal] = useState(false);
 
-  const toggle = () => setRegisterModal(!registerModal);
+  const toggle = () => setSignupModal(!signupModal);
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -20,7 +20,7 @@ function Register(props) {
 
   let handleSubmit = (event) => {
     event.preventDefault();
-    fetch('https://fello-server.herokuapp.com/user/signup', {
+    fetch('http://localhost:3001/user/signup', {
       method: 'POST',
       body: JSON.stringify({ user: { name: name, email: email, password: password } }),
       headers: new Headers({
@@ -29,7 +29,7 @@ function Register(props) {
     }).then(
       (response) => response.json()
     ).then((data) => {
-      props.updateToken(data.sessionToken);
+      props.updateToken(data.token);
     }).then(alert('Your account has been created!'))
   };
 
@@ -44,8 +44,8 @@ function Register(props) {
         border: 'none'
         }} onClick={toggle}>Sign Up{buttonLabel}</Button>
         : null}
-      <Modal isOpen={registerModal} toggle={toggle} className={className}>
-        <ModalHeader style={{fontFamily: 'Grandstander'}} toggle={toggle}>Sign up to save your shopping list!</ModalHeader>
+      <Modal isOpen={signupModal} toggle={toggle} className={className}>
+        <ModalHeader style={{fontFamily: 'Corben'}} toggle={toggle}>Become a fello traveler!</ModalHeader>
         <ModalBody>
           <Form onSubmit={handleSubmit}>
           <FormGroup>
@@ -61,20 +61,23 @@ function Register(props) {
               <Input minLength="5" onChange={(e) => setPassword(e.target.value)} name="password" type="password" value={password} />
             </FormGroup>
             <FormGroup>
-              <Button style={{backgroundColor: '#18E817',
-              fontFamily: 'Grandstander',
-              borderRadius: '10px',
-              transition: 'transform 0.3s ease',
-              boxShadow: '5px 5px 5px 0px rgba(118,241,117,1)',
-              border: 'none'
-              }} id="buttonHover" type="submit" onClick={toggle}>Sign Up</Button>{' '}
-              <Button color="danger" id="buttonHover" style=
+              <Button style={{backgroundColor: '#ff7f50',
+                color: '#292a2b',
+                fontFamily: 'Corben',
+                marginRight: '5px',
+                borderRadius: '10px',
+                transition: 'transform 0.3s ease',
+                boxShadow: '5px 5px 5px 0px rgba(85,61,52,0.3)',
+                border: 'none'
+                }} id="buttonHover" type="submit" onClick={toggle}>Sign Up</Button>{' '}
+              <Button id="buttonHover" style=
               {{borderRadius: '10px',
-              fontFamily: 'Grandstander',
+              color: "#292a2b",
+              fontFamily: 'Corben',
+              marginLeft: '5px',
               transition: 'transform 0.3s ease',
-              boxShadow: '5px 5px 5px 0px rgba(231,23,232,0.3)',
-              border: 'none'
-              }}onClick={toggle}>Cancel</Button>
+              boxShadow: '5px 5px 5px 0px rgba(85,61,52,0.3)',
+              border: 'none'}} onClick={toggle}>Cancel</Button>
             </FormGroup>
           </Form>
         </ModalBody>
@@ -83,4 +86,4 @@ function Register(props) {
   );
 }
 
-export default Register;
+export default Signup;

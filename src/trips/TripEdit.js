@@ -19,7 +19,7 @@ const TripEdit = (props) => {
 
   const tripUpdate = (event, trip) => {
     event.preventDefault();
-    fetch(`https://fello-server.herokuapp.com/mytrips/${props.tripToUpdate.id}`, {
+    fetch(`http://localhost:3001/mytrips/${props.tripToUpdate.id}`, {
       method: "PUT",
       body: JSON.stringify({
         tripdata: {
@@ -27,7 +27,7 @@ const TripEdit = (props) => {
           departDate: editDepartDate,
           returnDate: editReturnDate,
           companions: editCompanions,
-          occasion: editOccasion
+          occasion: editOccasion,
         },
       }),
       headers: new Headers({
@@ -40,7 +40,7 @@ const TripEdit = (props) => {
     });
   };
   return (
-    <Modal isOpen={true}>
+    <Modal isOpen={true} style={{color:"#292a2b"}}>
       <ModalHeader>Log a trip</ModalHeader>
       <ModalBody>
         <Form onSubmit={tripUpdate}>
@@ -84,7 +84,7 @@ const TripEdit = (props) => {
             onChange={(e) => setEditOccasion(e.target.value)}
           />
         </FormGroup>
-          <Button type="submit">Update trip</Button>
+          <Button type="submit">Update Trip</Button>
         </Form>
       </ModalBody>
     </Modal>

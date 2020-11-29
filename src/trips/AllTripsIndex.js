@@ -8,9 +8,9 @@ const TripIndex = (props) => {
   const [trips, setTrips] = useState([]);
   const [updateActive, setUpdateActive] = useState(false);
   const [tripToUpdate, setTripToUpdate] = useState({});
-
+// fetch url soon: https://fello-server.herokuapp.com/mytrips/
   const fetchTrips = () => {
-    fetch("https://fello-server.herokuapp.com/mytrips/", {
+    fetch("http://localhost:3001/mytrips/alltrips", {
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json",
@@ -18,13 +18,14 @@ const TripIndex = (props) => {
       }),
     })
       .then((res) => res.json())
-      .then((logdata) => {
-        setTrips(logdata);
+      .then((tripdata) => {
+        // setTrips(tripdata);
+        console.log(tripdata)
       });
   };
 
-  const editUpdateTrip = (Trip) => {
-    setTripToUpdate(Trip);
+  const editUpdateTrip = (trip) => {
+    setTripToUpdate(trip);
   };
 
   const updateOn = () => {
@@ -58,11 +59,11 @@ const TripIndex = (props) => {
           <TripEdit
             tripToUpdate={tripToUpdate}
             updateOff={updateOff}
-            fetchTrips={fetchTrips}
             token={props.token}
+            fetchTrips={fetchTrips}
           />
         ) : (
-          <></>
+          <> </>
         )}
       </Row>
     </Container>

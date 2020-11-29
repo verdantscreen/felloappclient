@@ -3,7 +3,7 @@ import { Table, Button } from "reactstrap";
 
 const TripsTable = (props) => {
   const deleteTrip = (trip) => {
-    fetch(`https://fello-server.herokuapp.com/mytrips/${trip.id}`, {
+    fetch(`http://localhost:3001/mytrips/${trip.id}`, {
       method: "DELETE",
       headers: new Headers({
         "Content-Type": "application/json",
@@ -13,7 +13,7 @@ const TripsTable = (props) => {
   };
 
   const tripMapper = () => {
-    return props.trips.map((trip, index) => {
+    props.trips.map((trip, index) => {
       return (
         <tr key={index}>
           <th scope="row">{trip.id}</th>
@@ -33,7 +33,7 @@ const TripsTable = (props) => {
               Update
             </Button>
             <Button
-              color="danger"
+              color="info"
               onClick={() => {
                 deleteTrip(trip);
               }}
@@ -49,16 +49,16 @@ const TripsTable = (props) => {
   return (
     <>
     <br />
-      <h3>Trip History</h3>
+      <h3 style={{textAlign:"center", color:"#292a2b"}}>Trip History</h3>
       <hr />
       <Table striped>
         <thead>
-          <tr style={{textAlign:"center"}}>
+          <tr style={{textAlign:"center", color:"#292a2b"}}>
             {/* <th> </th> */}
-            <th>Destination</th>
+            <th>Destination Known</th>
             <th>Get Outta Town</th>
             <th>Back Home Again</th>
-            <th>Buddies</th>
+            <th>Travel Buddies</th>
             <th>What Brings You Here?</th>
           </tr>
         </thead>
