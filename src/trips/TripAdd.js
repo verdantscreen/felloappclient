@@ -2,15 +2,33 @@ import React, { useState } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 
 const TripAdd = (props) => {
+  // const currentTime = new Date().toLocaleString().slice(0, 10);
+//   function formatDate(date) {
+//     var d = new Date(date),
+//         month = '' + (d.getMonth() + 1),
+//         day = '' + d.getDate(),
+//         year = d.getFullYear();
+
+//     if (month.length < 2) 
+//         month = '0' + month;
+//     if (day.length < 2) 
+//         day = '0' + day;
+
+//     return [year, month, day].join('-');
+// }
+console.log(props.token);
+
   const [destination, setDestination] = useState("");
-  const [departDate, setDepartDate] = useState(null);
-  const [returnDate, setReturnDate] = useState(null);
+  const [departDate, setDepartDate] = useState("");
+  const [returnDate, setReturnDate] = useState("");
   const [companions, setCompanions] = useState("");
   const [occasion, setOccasion] = useState("");
 
-  // http://localhost:3000/mytrips/  https://fello-server.herokuapp.com/mytrips/ 
+// https://fello-server.herokuapp.com/mytrips/ 
   const handleSubmit = (e) => {
+    console.log("before prevent def")
     e.preventDefault();
+    console.log("after prevent def")
     fetch(`http://localhost:3001/mytrips/addtrip`, {
       method: "POST",
       body: JSON.stringify({
@@ -27,16 +45,16 @@ const TripAdd = (props) => {
         "Authorization": props.token
       }),
     })
-      .then((res) => res.json())
-      .then((logdata) => {
-        console.log(logdata);
+      .then((res) => console.log(res.json()))
+      .then((tripdata) => {
         setDestination("");
         setDepartDate("");
         setReturnDate("");
         setCompanions("");
         setOccasion("");
-        props.fetchTrips();
-      });
+        // props.fetchTrips();
+      })
+      .catch(err => console.log(err));
   };
 
   return (
@@ -45,7 +63,7 @@ const TripAdd = (props) => {
     <br/>
       <h3 style={{color:"#292a2b"}}>Log a Trip</h3>
       <br/>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} >
         <FormGroup>
           <Label htmlFor="destination">Destination Known:</Label>
           <Input

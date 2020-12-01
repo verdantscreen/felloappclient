@@ -8,8 +8,6 @@ const Signin = (props) => {
     className
   } = props;
 
-//   const classes = useStyles();
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -28,7 +26,7 @@ const Signin = (props) => {
     }).then(
         (response) => response.json()
     ).then((data) => {
-        props.updateToken(data.token)
+        props.updateToken(data.sessionToken)
     })
 }
 

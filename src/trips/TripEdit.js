@@ -18,7 +18,7 @@ const TripEdit = (props) => {
   const [editOccasion, setEditOccasion] = useState(props.tripToUpdate.occasion);
 
   const tripUpdate = (event, trip) => {
-    event.preventDefault();
+    // event.preventDefault();
     fetch(`http://localhost:3001/mytrips/${props.tripToUpdate.id}`, {
       method: "PUT",
       body: JSON.stringify({

@@ -16,32 +16,24 @@ import {
   NavLink,
   NavbarText
 } from 'reactstrap';
-// import SomeFeatureLike Search from './filepath';
 import Auth from '../auth/Auth';
 import Landing from '../pages/Landing';
 import TripIndex from "../trips/AllTripsIndex";
 
 const Sitebar = (props) => {
     const [isOpen, setIsOpen] = useState(false);
+  
 
     const toggle = () => setIsOpen(!isOpen);
-  
-    // const [token, setToken] = useState("");
-  
-    // const updateToken = (newToken) => {
-    //   localStorage.setItem("token", newToken);
-    //   setToken(newToken);
-    //   console.log(token);
-    // }; not useful here!
       
-    const isAuth = !!localStorage.getItem("token");
-  
+
     const logOut = () => {
-      localStorage.clear("token");
+      localStorage.clear();
       props.setToken('');
+      props.setIsAuth(false);
       alert('You have been successfully logged out.')
     };
-
+    console.log(props.isAuth);
     return(
         <div>
         <Navbar style={{color: "#f2f2e7", backgroundColor: "coral"}} light expand="md">
@@ -49,25 +41,22 @@ const Sitebar = (props) => {
             <NavbarToggler onClick={toggle} />
             <Collapse isOpen={isOpen} navbar>
              <Nav className="mr-auto" navbar>
-
-            <NavItem>
-            { localStorage.getItem('token') !== null ?
-            <NavLink href="/mytrips/"><span className="nbt">My Trips</span></NavLink> : null}
-            </NavItem>
+             { localStorage.getItem('token') !== null ? <NavItem>
+            <NavLink href="/mytrips/"><span className="nbt">My Trips</span></NavLink>
+            </NavItem>: null}
           </Nav>
           <Nav>
-            <Auth updateToken={props.updateToken} token={props.token} setToken={props.setToken}/>
+            <Auth isAuth={props.isAuth} updateToken={props.updateToken} token={props.token} setToken={props.setToken}/>
           </Nav>
           <NavLink href="/">
-            {localStorage.getItem('token') !== null ? <Button className="btn1" id="buttonHover"
+          { localStorage.getItem('token') !== null ? <Button className="btn1" id="buttonHover"
             style={{ marginRight: 25,
             backgroundColor: "#292a2b",
             borderRadius: '10px',
             transition: 'transform 0.3s ease',
             boxShadow: '5px 5px 5px 0px rgba(85,61,52,0.3)',
-            border: 'none' }} onClick={logOut}>Sign Out</Button> 
-            : null}
-
+            border: 'none' }} onClick={logOut}>Sign Out</Button> : null}
+          
             </NavLink>
             <NavbarText><span className="nbtext1">Wherever you go, </span><span className="nbtext2"> fello !</span></NavbarText>
             </Collapse>
@@ -75,7 +64,9 @@ const Sitebar = (props) => {
         <BrowserRouter>
         <Switch>
             {/* <Route exact path="/"><Landing/></Route> */}
-            <Route exact path="/mytrips/"> { localStorage.getItem('token') !== null ? <TripIndex/> : <Landing/> } </Route>
+
+            <Route exact path="/mytrips/">{ props.isAuth ? <TripIndex token={props.token} setToken={props.setToken}/> : <Landing/>}</Route>
+
       </Switch>
       </BrowserRouter>
     </div>

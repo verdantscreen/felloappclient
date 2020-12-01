@@ -8,8 +8,6 @@ function Signup(props) {
     className
   } = props;
 
-//   const classes = useStyles();
-
   const [signupModal, setSignupModal] = useState(false);
 
   const toggle = () => setSignupModal(!signupModal);
@@ -29,7 +27,7 @@ function Signup(props) {
     }).then(
       (response) => response.json()
     ).then((data) => {
-      props.updateToken(data.token);
+      props.updateToken(data.sessionToken);
     }).then(alert('Your account has been created!'))
   };
 

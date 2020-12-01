@@ -8,7 +8,7 @@ const TripIndex = (props) => {
   const [trips, setTrips] = useState([]);
   const [updateActive, setUpdateActive] = useState(false);
   const [tripToUpdate, setTripToUpdate] = useState({});
-// fetch url soon: https://fello-server.herokuapp.com/mytrips/
+
   const fetchTrips = () => {
     fetch("http://localhost:3001/mytrips/alltrips", {
       method: "GET",
@@ -19,8 +19,8 @@ const TripIndex = (props) => {
     })
       .then((res) => res.json())
       .then((tripdata) => {
-        // setTrips(tripdata);
-        console.log(tripdata)
+        setTrips(tripdata);
+        // console.log(tripdata)
       });
   };
 
