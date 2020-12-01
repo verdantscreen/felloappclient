@@ -6,45 +6,51 @@ import TripEdit from "./TripEdit";
 
 const TripIndex = (props) => {
   const [trips, setTrips] = useState([]);
-  const [updateActive, setUpdateActive] = useState(false);
+  const [updateOpen, setUpdateOpen] = useState(false);
   const [tripToUpdate, setTripToUpdate] = useState({});
 
   const fetchTrips = () => {
     fetch("http://localhost:3001/mytrips/alltrips", {
-      method: "GET",
+      method: 'GET',
       headers: new Headers({
-        "Content-Type": "application/json",
-        "Authorization": props.token,
+        'Content-Type': 'application/json',
+        'Authorization': props.token, //or localStorage.token
       }),
     })
       .then((res) => res.json())
       .then((tripdata) => {
         setTrips(tripdata);
-        // console.log(tripdata)
-      });
-  };
+        console.log(tripdata)
+      })
+      .catch(err => console.log(err))
+  }
 
   const editUpdateTrip = (trip) => {
     setTripToUpdate(trip);
-  };
+    console.log(trip);
+  }
 
   const updateOn = () => {
-    setUpdateActive(true);
-  };
+    setUpdateOpen(true);
+  }
 
   const updateOff = () => {
-    setUpdateActive(false);
-  };
+    setUpdateOpen(false);
+  }
 
   useEffect(() => {
     fetchTrips();
-  }, []);
+  }, [])
 
   return (
     <Container>
       <Row>
         <Col md="3">
-          <TripAdd fetchTrips={fetchTrips} token={props.token} />
+          <TripAdd 
+          fetchTrips={fetchTrips} 
+          token={props.token}
+          trips={trips}
+          />
         </Col>
         <Col md="9">
           <TripsTable
@@ -55,19 +61,17 @@ const TripIndex = (props) => {
             token={props.token}
           />
         </Col>
-        {updateActive ? (
+        {updateOpen ? 
           <TripEdit
             tripToUpdate={tripToUpdate}
             updateOff={updateOff}
             token={props.token}
             fetchTrips={fetchTrips}
-          />
-        ) : (
-          <> </>
-        )}
+          /> :
+          <></>}
       </Row>
     </Container>
-  );
-};
+  )
+}
 
 export default TripIndex;

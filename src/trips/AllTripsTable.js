@@ -2,18 +2,21 @@ import React from "react";
 import { Table, Button } from "reactstrap";
 
 const TripsTable = (props) => {
+  // add useState variables here?
+
+  //change fetch url interpolation?
   const deleteTrip = (trip) => {
     fetch(`http://localhost:3001/mytrips/trip${trip.id}`, {
       method: "DELETE",
       headers: new Headers({
         "Content-Type": "application/json",
-        "Authorization": props.token,
+        "Authorization": props.token, //or localStorage.token
       }),
-    }).then(() => props.fetchTrips());
+    }).then(() => props.fetchTrips())
   };
 
-  const tripMapper = () => {
-    props.trips.map((trip, index) => {
+  const tripMap = () => {
+    return props.trips.map((trip, index) => {
       return (
         <tr key={index}>
           <th scope="row">{trip.id}</th>
@@ -27,7 +30,7 @@ const TripsTable = (props) => {
               color="warning"
               onClick={() => {
                 props.editUpdateTrip(trip);
-                props.updateOn();
+                props.updateOn()
               }}
             >
               Update
@@ -35,16 +38,16 @@ const TripsTable = (props) => {
             <Button
               color="info"
               onClick={() => {
-                deleteTrip(trip);
+                deleteTrip(trip)
               }}
             >
               Delete
             </Button>
           </td>
         </tr>
-      );
-    });
-  };
+      )
+    })
+  }
 
   return (
     <>
@@ -54,7 +57,7 @@ const TripsTable = (props) => {
       <Table striped>
         <thead>
           <tr style={{textAlign:"center", color:"#292a2b"}}>
-            {/* <th> </th> */}
+            <th> </th>
             <th>Destination Known</th>
             <th>Get Outta Town</th>
             <th>Back Home Again</th>
@@ -62,10 +65,10 @@ const TripsTable = (props) => {
             <th>What Brings You Here?</th>
           </tr>
         </thead>
-        <tbody>{tripMapper()}</tbody>
+        <tbody>{tripMap()}</tbody>
       </Table>
     </>
-  );
-};
+  )
+}
 
 export default TripsTable;

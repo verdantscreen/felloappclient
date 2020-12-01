@@ -27,7 +27,7 @@ console.log(props.token);
 // https://fello-server.herokuapp.com/mytrips/ 
   const handleSubmit = (e) => {
     console.log("before prevent def")
-    e.preventDefault();
+    // e.preventDefault();
     console.log("after prevent def")
     fetch(`http://localhost:3001/mytrips/addtrip`, {
       method: "POST",

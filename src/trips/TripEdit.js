@@ -19,8 +19,8 @@ const TripEdit = (props) => {
 
   const tripUpdate = (event, trip) => {
     // event.preventDefault();
-    fetch(`http://localhost:3001/mytrips/${props.tripToUpdate.id}`, {
-      method: "PUT",
+    fetch(`http://localhost:3001/mytrips/trip${props.tripToUpdate.id}`, {
+      method: 'PUT',
       body: JSON.stringify({
         tripdata: {
           destination: editDestination,
@@ -28,67 +28,75 @@ const TripEdit = (props) => {
           returnDate: editReturnDate,
           companions: editCompanions,
           occasion: editOccasion,
-        },
+        }
       }),
       headers: new Headers({
-        "Content-Type": "application/json",
-        "Authorization": props.token,
-      }),
+        'Content-Type': 'application/json',
+        'Authorization': props.token //or localStorage.token
+      })
     }).then((res) => {
       props.fetchTrips();
       props.updateOff();
-    });
-  };
+    })
+  }
+
   return (
-    <Modal isOpen={true} style={{color:"#292a2b"}}>
-      <ModalHeader>Log a trip</ModalHeader>
+    <Modal isOpen={true} >
+      <ModalHeader style={{color:"#292a2b"}}>Log a Trip</ModalHeader>
       <ModalBody>
         <Form onSubmit={tripUpdate}>
           <FormGroup>
-            <Label htmlFor="destination">Edit destination:</Label>
+            <Label htmlFor='destination' style={{fontFamily: 'Roboto'}}>Edit Destination:</Label>
             <Input
-              name="destination"
+              name='destination'
               value={editDestination}
               onChange={(e) => setEditDestination(e.target.value)}
             />
           </FormGroup>
           <FormGroup>
-            <Label htmlFor="depart date">Edit Depart date :</Label>
+            <Label htmlFor='departDate'>Edit Depart Date:</Label>
             <Input
-              name="departDate"
+              name='departDate'
               value={editDepartDate}
               onChange={(e) => setEditDepartDate(e.target.value)}
             />
           </FormGroup>
           <FormGroup>
-            <Label htmlFor="returnDate">Edit Return date :</Label>
+            <Label htmlFor='returnDate'>Edit Return Date:</Label>
             <Input
-              name="returnDate"
+              name='returnDate'
               value={editReturnDate}
               onChange={(e) => setEditReturnDate(e.target.value)}
             />
           </FormGroup>
           <FormGroup>
-          <Label htmlFor="companions">Edit companions :</Label>
+          <Label htmlFor='companions'>Edit Companions:</Label>
           <Input
-            name="companions"
+            name='companions'
             value={editCompanions}
             onChange={(e) => setEditCompanions(e.target.value)}
           />
         </FormGroup>
         <FormGroup>
-          <Label htmlFor="occasion">Edit Occasion  :</Label>
+          <Label htmlFor='occasion'>Edit Occasion:</Label>
           <Input
-            name="occasion"
+            name='occasion'
             value={editOccasion}
             onChange={(e) => setEditOccasion(e.target.value)}
           />
         </FormGroup>
-          <Button type="submit">Update Trip</Button>
+          <Button type="submit" 
+          style={{backgroundColor: '#18E817',
+                  borderRadius: '10px',
+                  transition: 'transform 0.3s ease',
+                  boxShadow: '5px 5px 5px 0px rgba(118,241,117,1)',
+                  border: 'none',
+                  fontFamily: 'Grandstander'
+                  }} id="buttonHover">Update Trip</Button>
         </Form>
       </ModalBody>
     </Modal>
-  );
-};
+  )
+}
 
 export default TripEdit;

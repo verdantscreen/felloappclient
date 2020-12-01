@@ -61,11 +61,12 @@ const Sitebar = (props) => {
             <NavbarText><span className="nbtext1">Wherever you go, </span><span className="nbtext2"> fello !</span></NavbarText>
             </Collapse>
         </Navbar>
+        <Landing/>
         <BrowserRouter>
         <Switch>
             {/* <Route exact path="/"><Landing/></Route> */}
 
-            <Route exact path="/mytrips/">{ props.isAuth ? <TripIndex token={props.token} setToken={props.setToken}/> : <Landing/>}</Route>
+            <Route exact path="/mytrips/">{ props.isAuth ? <TripIndex token={props.token} setToken={props.setToken}/> : null}</Route>
 
       </Switch>
       </BrowserRouter>

@@ -33,7 +33,7 @@ import {BrowserRouter as Router} from 'react-router-dom';
       <Router >
       <Sitebar updateToken={updateToken} token={token} setToken={setToken } isAuth={isAuth} setIsAuth={setIsAuth}/>
       </Router>
-      <Landing />
+      {/* <Landing/> */}
     </div>
   );
 }
