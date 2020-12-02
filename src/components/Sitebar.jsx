@@ -19,6 +19,7 @@ import {
 import Auth from '../auth/Auth';
 import Landing from '../pages/Landing';
 import TripIndex from "../trips/AllTripsIndex";
+import TripDetails from "../tripdetails/TripDetails";
 
 const Sitebar = (props) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -42,7 +43,7 @@ const Sitebar = (props) => {
             <Collapse isOpen={isOpen} navbar>
              <Nav className="mr-auto" navbar>
              { localStorage.getItem('token') !== null ? <NavItem>
-            <NavLink href="/mytrips/"><span className="nbt">My Trips</span></NavLink>
+            <NavLink style={{color: "#292a2b", background: "#f2f2e7", borderRadius: '10px'}} href="/mytrips/"><span className="nbt">My Trips</span></NavLink>
             </NavItem>: null}
           </Nav>
           <Nav>
@@ -61,12 +62,11 @@ const Sitebar = (props) => {
             <NavbarText><span className="nbtext1">Wherever you go, </span><span className="nbtext2"> fello !</span></NavbarText>
             </Collapse>
         </Navbar>
-        <Landing/>
         <BrowserRouter>
         <Switch>
-            {/* <Route exact path="/"><Landing/></Route> */}
-
+            <Route exact path="/"><Landing/></Route>
             <Route exact path="/mytrips/">{ props.isAuth ? <TripIndex token={props.token} setToken={props.setToken}/> : null}</Route>
+            <Route exact path="/tripdetails">{ props.isAuth ? <TripDetails token={props.token} setToken={props.setToken}/> : null}</Route>
 
       </Switch>
       </BrowserRouter>

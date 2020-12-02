@@ -2,20 +2,7 @@ import React, { useState } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 
 const TripAdd = (props) => {
-  // const currentTime = new Date().toLocaleString().slice(0, 10);
-//   function formatDate(date) {
-//     var d = new Date(date),
-//         month = '' + (d.getMonth() + 1),
-//         day = '' + d.getDate(),
-//         year = d.getFullYear();
 
-//     if (month.length < 2) 
-//         month = '0' + month;
-//     if (day.length < 2) 
-//         day = '0' + day;
-
-//     return [year, month, day].join('-');
-// }
 console.log(props.token);
 
   const [destination, setDestination] = useState("");
@@ -67,6 +54,7 @@ console.log(props.token);
         <FormGroup>
           <Label htmlFor="destination">Destination Known:</Label>
           <Input
+          style={{fontFamily:'Roboto', fontSize: 'medium'}}
             name="destination"
             value={destination}
             onChange={(e) => setDestination(e.target.value)}
@@ -75,6 +63,7 @@ console.log(props.token);
         <FormGroup>
           <Label htmlFor="departDate">Get Outta Town:</Label>
           <Input
+            style={{textAlign:"right", fontFamily:'Roboto', fontSize:'small', fontWeight:'bolder'}}
             type="date"
             name="departDate"
             value={departDate}
@@ -85,6 +74,7 @@ console.log(props.token);
         <FormGroup>
           <Label htmlFor="returnDate">Back Home Again:</Label>
           <Input
+            style={{textAlign:"right", fontFamily: 'Roboto', fontSize:'small', fontWeight:'bolder'}}
             type="date"
             name="returnDate"
             value={returnDate}
@@ -94,6 +84,7 @@ console.log(props.token);
         <FormGroup>
           <Label htmlFor="companions">Travel Buddies:</Label>
           <Input
+            style={{fontFamily: 'Roboto'}}
             name="companions"
             value={companions}
             onChange={(e) => setCompanions(e.target.value)}
@@ -102,18 +93,31 @@ console.log(props.token);
         <FormGroup>
           <Label htmlFor="occasion">What Brings You Here?:</Label>
           <Input
+          style={{fontFamily: 'Roboto'}}
             type="select"
             name="occasion"
             value={occasion}
             onChange={(e) => setOccasion(e.target.value)}
           >
             <option></option>
-            <option value="Just bc">Just Because</option>
-            <option value="Family">Family</option>
-            <option value="Work">Work</option>
+            <option style={{fontFamily: 'Corben'}} value="Just bc">just Because</option>
+            <option style={{fontFamily: 'Corben'}} value="Family">family</option>
+            <option style={{fontFamily: 'Corben'}} value="Work">work</option>
             </Input>
         </FormGroup>
-        <Button type="submit" style={{textAlign:"center", backgroundColor:"#ff7f50"}} >Log Trip</Button>
+        <Button 
+        type="submit" 
+        style={{textAlign:"center",
+                backgroundColor: '#ff7f50',
+                color: '#292a2b',
+                fontFamily: 'Corben',
+                marginRight: '5px',
+                borderRadius: '10px',
+                transition: 'transform 0.3s ease',
+                boxShadow: '5px 5px 5px 0px rgba(85,61,52,0.3)',
+                border: 'none'
+                }} id="buttonHover" 
+        >Log Trip</Button>
       </Form>
     </>
   );

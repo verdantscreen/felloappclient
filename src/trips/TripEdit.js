@@ -42,7 +42,7 @@ const TripEdit = (props) => {
 
   return (
     <Modal isOpen={true} >
-      <ModalHeader style={{color:"#292a2b"}}>Log a Trip</ModalHeader>
+      <ModalHeader style={{color:"#292a2b", fontFamily: 'Corben'}}>Change of Plans?</ModalHeader>
       <ModalBody>
         <Form onSubmit={tripUpdate}>
           <FormGroup>
@@ -86,13 +86,15 @@ const TripEdit = (props) => {
           />
         </FormGroup>
           <Button type="submit" 
-          style={{backgroundColor: '#18E817',
-                  borderRadius: '10px',
-                  transition: 'transform 0.3s ease',
-                  boxShadow: '5px 5px 5px 0px rgba(118,241,117,1)',
-                  border: 'none',
-                  fontFamily: 'Grandstander'
-                  }} id="buttonHover">Update Trip</Button>
+          style={{backgroundColor: '#ff7f50',
+          color: '#292a2b',
+          fontFamily: 'Corben',
+          marginRight: '5px',
+          borderRadius: '10px',
+          transition: 'transform 0.3s ease',
+          boxShadow: '5px 5px 5px 0px rgba(85,61,52,0.3)',
+          border: 'none'
+          }} id="buttonHover">Done!</Button>
         </Form>
       </ModalBody>
     </Modal>

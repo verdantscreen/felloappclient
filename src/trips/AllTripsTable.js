@@ -19,15 +19,26 @@ const TripsTable = (props) => {
     return props.trips.map((trip, index) => {
       return (
         <tr key={index}>
-          <th scope="row">{trip.id}</th>
-          <td>{trip.destination}</td>
-          <td>{trip.departDate}</td>
-          <td>{trip.returnDate}</td>
-          <td>{trip.companions}</td>
-          <td>{trip.occasion}</td>
+          <th scope="row"></th>
+          <td><a style={{color: '#ff7f50'}} href="/tripdetails">
+            {trip.destination}
+            </a>
+          </td>
+          <td style={{fontFamily: 'Roboto'}}>{trip.departDate}</td>
+          <td style={{fontFamily: 'Roboto'}}>{trip.returnDate}</td>
+          <td style={{fontFamily: 'Roboto'}}>{trip.companions}</td>
+          <td style={{fontFamily: 'Roboto'}}>{trip.occasion}</td>
           <td>
             <Button
-              color="warning"
+            style={{backgroundColor: '#ff7f50',
+            color: '#292a2b',
+            fontFamily: 'Corben',
+            marginRight: '5px',
+            borderRadius: '10px',
+            transition: 'transform 0.3s ease',
+            boxShadow: '5px 5px 5px 0px rgba(85,61,52,0.3)',
+            border: 'none'
+            }} id="buttonHover" 
               onClick={() => {
                 props.editUpdateTrip(trip);
                 props.updateOn()
@@ -36,7 +47,16 @@ const TripsTable = (props) => {
               Update
             </Button>
             <Button
-              color="info"
+              style={{textAlign:"center",
+              backgroundColor: '#292a2b',
+              color: '#f2f2e7',
+              fontFamily: 'Corben',
+              margin: '5px',
+              borderRadius: '10px',
+              transition: 'transform 0.3s ease',
+              boxShadow: '5px 5px 5px 0px rgba(85,61,52,0.3)',
+              border: 'none'
+              }}
               onClick={() => {
                 deleteTrip(trip)
               }}
