@@ -3,12 +3,16 @@ import { Container, Row, Col } from "reactstrap";
 import TripAdd from "./TripAdd";
 import TripsTable from "./AllTripsTable";
 import TripEdit from "./TripEdit";
-import TripDetails from "../tripdetails/TripDetails";
+import ThingsIndex from '../tripdetails/things/ThingsIndex';
+import PlacesIndex from '../tripdetails/places/PlacesIndex';
+import ThoughtsIndex from '../tripdetails/thoughts/ThoughtsIndex';
+// import TripDetailsDisplay from "../tripdetails/TripDetailsDisplay";
 
 const TripIndex = (props) => {
   const [trips, setTrips] = useState([]);
   const [updateOpen, setUpdateOpen] = useState(false);
   const [tripToUpdate, setTripToUpdate] = useState({});
+  const [singleTrip, setSingleTrip] = useState();
 
   const fetchTrips = () => {
     fetch("http://localhost:3001/mytrips/alltrips", {
@@ -21,14 +25,14 @@ const TripIndex = (props) => {
       .then((res) => res.json())
       .then((tripdata) => {
         setTrips(tripdata);
-        console.log(tripdata)
+        console.log("the tripdata I want ln24 AllTripsIndex", tripdata)
       })
       .catch(err => console.log(err))
   }
 
   const editUpdateTrip = (trip) => {
     setTripToUpdate(trip);
-    console.log(trip);
+    console.log("ALLTRIPSINDEX what is trip?: ", trip);
   }
 
   const updateOn = () => {
@@ -41,10 +45,18 @@ const TripIndex = (props) => {
 
   useEffect(() => {
     fetchTrips();
-  }, [])
+  }, [props.isAuth])
 
-  return (
-    <>
+  return singleTrip ? 
+  (
+  <div>
+  {/* <TripDetailsDisplay trip={singleTrip} isAuth={props.isAuth} token={props.token}/> */}
+  <ThingsIndex trip={singleTrip} isAuth={props.isAuth} token={props.token}/> 
+  {/* <PlacesIndex trip={singleTrip} isAuth={props.isAuth} token={props.token}/> 
+  <ThoughtsIndex trip={singleTrip} isAuth={props.isAuth} token={props.token}/> */}
+  </div>
+  ) : (
+    <div>
     <Container>
       <Row>
         <Col md="2">
@@ -56,6 +68,7 @@ const TripIndex = (props) => {
         </Col>
         <Col md="10">
           <TripsTable
+          setSingleTrip={setSingleTrip}
             trips={trips}
             editUpdateTrip={editUpdateTrip}
             updateOn={updateOn}
@@ -73,16 +86,7 @@ const TripIndex = (props) => {
           <></>}
       </Row>
     </Container>
-    {/* <div style={{display:'none', visibility:'hidden'}}>
-     <TripDetails 
-            style={{display:'none', visibility:'hidden'}} 
-            trips={trips}
-            editUpdateTrip={editUpdateTrip}
-            updateOn={updateOn}
-            fetchTrips={fetchTrips}
-            token={props.token}/>
-     </div> */}
-     </>
+     </div>
   )
 }
 

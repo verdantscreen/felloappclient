@@ -16,10 +16,11 @@ import {
   NavLink,
   NavbarText
 } from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Auth from '../auth/Auth';
 import Landing from '../pages/Landing';
 import TripIndex from "../trips/AllTripsIndex";
-import TripDetails from "../tripdetails/TripDetails";
+import TripDetailsDisplay from "../tripdetails/TripDetailsDisplay";
 
 const Sitebar = (props) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -42,15 +43,15 @@ const Sitebar = (props) => {
             <NavbarToggler onClick={toggle} />
             <Collapse isOpen={isOpen} navbar>
              <Nav className="mr-auto" navbar>
-             { localStorage.getItem('token') !== null ? <NavItem>
+             { props.isAuth ? <NavItem>
             <NavLink style={{color: "#292a2b", background: "#f2f2e7", borderRadius: '10px'}} href="/mytrips/"><span className="nbt">My Trips</span></NavLink>
             </NavItem>: null}
           </Nav>
           <Nav>
-            <Auth isAuth={props.isAuth} updateToken={props.updateToken} token={props.token} setToken={props.setToken}/>
+            <Auth isAuth={props.isAuth} setIsAuth={props.setIsAuth} updateToken={props.updateToken} token={props.token} setToken={props.setToken} />
           </Nav>
           <NavLink href="/">
-          { localStorage.getItem('token') !== null ? <Button className="btn1" id="buttonHover"
+          { props.isAuth ? <Button className="btn1" id="buttonHover"
             style={{ marginRight: 25,
             backgroundColor: "#292a2b",
             borderRadius: '10px',
@@ -62,14 +63,7 @@ const Sitebar = (props) => {
             <NavbarText><span className="nbtext1">Wherever you go, </span><span className="nbtext2"> fello !</span></NavbarText>
             </Collapse>
         </Navbar>
-        <BrowserRouter>
-        <Switch>
-            <Route exact path="/"><Landing/></Route>
-            <Route exact path="/mytrips/">{ props.isAuth ? <TripIndex token={props.token} setToken={props.setToken}/> : null}</Route>
-            <Route exact path="/tripdetails">{ props.isAuth ? <TripDetails token={props.token} setToken={props.setToken}/> : null}</Route>
-
-      </Switch>
-      </BrowserRouter>
+        
     </div>
     )
 }

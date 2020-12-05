@@ -26,7 +26,11 @@ const Signin = (props) => {
     }).then(
         (response) => response.json()
     ).then((data) => {
-        props.updateToken(data.sessionToken)
+      if(data.sessionToken){
+        props.updateToken(data.sessionToken);
+        props.setIsAuth(true);
+      }
+        
     })
 }
 

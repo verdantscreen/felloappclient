@@ -9,11 +9,11 @@ const Auth = (props) => {
     return(
         <Container className="auth-container">
             <Col>
-                    <Signup updateToken={props.updateToken}/>
+                    <Signup setIsAuth={props.setIsAuth} updateToken={props.updateToken}/>
             </Col>
             <Col/>
             <Col>
-                    <Signin updateToken={props.updateToken}/>
+                    <Signin setIsAuth={props.setIsAuth} updateToken={props.updateToken}/>
             </Col>
         </Container>
     )

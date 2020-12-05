@@ -1,5 +1,6 @@
 import React from "react";
 import { Table, Button } from "reactstrap";
+import TripDetailsDisplay from '../tripdetails/TripDetailsDisplay'
 
 const TripsTable = (props) => {
   // add useState variables here?
@@ -20,9 +21,13 @@ const TripsTable = (props) => {
       return (
         <tr key={index}>
           <th scope="row"></th>
-          <td><a style={{color: '#ff7f50'}} href="/tripdetails">
+          <td><button style={{color: '#ff7f50', border:'none', backgroundColor: 'transparent'}} 
+          // href="/tripdetails" 
+          onClick={(()=>{
+            props.setSingleTrip(trip)
+          })}>
             {trip.destination}
-            </a>
+            </button>
           </td>
           <td style={{fontFamily: 'Roboto'}}>{trip.departDate}</td>
           <td style={{fontFamily: 'Roboto'}}>{trip.returnDate}</td>

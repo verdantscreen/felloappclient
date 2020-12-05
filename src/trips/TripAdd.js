@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 
 const TripAdd = (props) => {
-
-console.log(props.token);
+console.log("ln 5 TripAdd props", props);
+console.log("ln 6 TripAdd props.token", props.token);
 
   const [destination, setDestination] = useState("");
   const [departDate, setDepartDate] = useState("");
@@ -32,7 +32,7 @@ console.log(props.token);
         "Authorization": props.token
       }),
     })
-      .then((res) => console.log(res.json()))
+      .then((res) => console.log("c.l res.json", res.json()))
       .then((tripdata) => {
         setDestination("");
         setDepartDate("");
@@ -40,6 +40,7 @@ console.log(props.token);
         setCompanions("");
         setOccasion("");
         // props.fetchTrips();
+        console.log("c.l tripdata in TripAdd.js", tripdata);
       })
       .catch(err => console.log(err));
   };
@@ -100,7 +101,7 @@ console.log(props.token);
             onChange={(e) => setOccasion(e.target.value)}
           >
             <option></option>
-            <option style={{fontFamily: 'Corben'}} value="Just bc">just Because</option>
+            <option style={{fontFamily: 'Corben'}} value="Just bc">just because</option>
             <option style={{fontFamily: 'Corben'}} value="Family">family</option>
             <option style={{fontFamily: 'Corben'}} value="Work">work</option>
             </Input>

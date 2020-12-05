@@ -1,9 +1,11 @@
 import React, { useState, useEffect, Component } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Landing from './pages/Landing';
 import Sitebar from './components/Sitebar';
-import {BrowserRouter as Router} from 'react-router-dom'; 
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'; 
+import TripIndex from "./trips/AllTripsIndex";
+import TripDetailsDisplay from "./tripdetails/TripDetailsDisplay";
 
   function App() {
     const [token, setToken] = useState("");
@@ -17,9 +19,11 @@ import {BrowserRouter as Router} from 'react-router-dom';
           setIsAuth(true);
           
         }
-          else {setToken('')}
+          else {setToken('')
+        setIsAuth(false);
+        }
       } else console.log("not working")
-    }, [isAuth]);
+    }, []); //remove isAuth
 
     const updateToken = (sessionToken) => {
       localStorage.setItem('token', sessionToken);
@@ -27,15 +31,30 @@ import {BrowserRouter as Router} from 'react-router-dom';
       console.log(sessionToken);
     };
   
+if(isAuth){
+
   return (
     <div className="App" style={{backgroundColor: "#f2f2e7"}}>
       <h1 style={{color: "#292a2b"}}>fello</h1>
       <Router >
       <Sitebar updateToken={updateToken} token={token} setToken={setToken } isAuth={isAuth} setIsAuth={setIsAuth}/>
+        <Switch>
+            <Route exact path="/"><Landing/></Route>
+            <Route exact path="/mytrips/"> <TripIndex token={token} setToken={setToken} isAuth={isAuth}/> </Route>
+            {/* <Route exact path="/tripdetails"> <TripDetailsDisplay token={token} setToken={setToken} isAuth={isAuth}/></Route> */}
+
+      </Switch>
       </Router>
       {/* <Landing/> */}
     </div>
   );
+} else {
+  return(
+    <Router >
+      <Sitebar updateToken={updateToken} token={token} setToken={setToken } isAuth={isAuth} setIsAuth={setIsAuth}/>
+    </Router>
+  )
+}
 }
 
 export default App;

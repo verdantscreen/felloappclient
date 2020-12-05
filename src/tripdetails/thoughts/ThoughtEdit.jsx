@@ -10,7 +10,7 @@ import {
   Input,
 } from "reactstrap";
 
-const TripEdit = (props) => {
+const ThoughtsEdit = (props) => {
   const [editDestination, setEditDestination] = useState(props.tripToUpdate.destination);
   const [editDepartDate, setEditDepartDate] = useState(props.tripToUpdate.departDate);
   const [editReturnDate, setEditReturnDate] = useState(props.tripToUpdate.returnDate);
@@ -18,9 +18,8 @@ const TripEdit = (props) => {
   const [editOccasion, setEditOccasion] = useState(props.tripToUpdate.occasion);
 
   const tripUpdate = (event, trip) => {
-    console.log(props.tripToUpdate)
     // event.preventDefault();
-    fetch(`http://localhost:3001/mytrips/trip${props.tripToUpdate.id}`, {
+    fetch(`http://localhost:3001/trip${props.tripToUpdate.id}/thought${props.tripToUpdate.id}`, {
       method: 'PUT',
       body: JSON.stringify({
         tripdata: {
@@ -102,4 +101,4 @@ const TripEdit = (props) => {
   )
 }
 
-export default TripEdit;
+export default ThoughtsEdit;
