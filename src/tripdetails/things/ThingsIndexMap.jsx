@@ -53,7 +53,7 @@ console.log("LINE 11 props.trips in TIM", props.trips);
         //         console.log("else statement hit")
         //     }, 3000)
         // }
-    }, [props.allTrips, props.trip])
+    }, [ props.trip])
 
     return(
         <div>

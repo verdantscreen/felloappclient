@@ -1,13 +1,11 @@
 import React from "react";
 import { Table, Button } from "reactstrap";
-import TripDetailsDisplay from '../tripdetails/TripDetailsDisplay'
+// import TripDetailsDisplay from '../tripdetails/TripDetailsDisplay'
 
 const TripsTable = (props) => {
-  // add useState variables here?
 
-  //change fetch url interpolation?
-  const deleteTrip = (trip) => {
-    fetch(`http://localhost:3001/mytrips/trip${trip.id}`, {
+  const deleteTrip = (frog) => {
+    fetch(`http://localhost:3001/mytrips/trip${frog.id}`, {
       method: "DELETE",
       headers: new Headers({
         "Content-Type": "application/json",
@@ -17,22 +15,21 @@ const TripsTable = (props) => {
   };
 
   const tripMap = () => {
-    return props.trips.map((trip, index) => {
+    return props.trips.map((any, index) => {
       return (
         <tr key={index}>
           <th scope="row"></th>
-          <td><button style={{color: '#ff7f50', border:'none', backgroundColor: 'transparent'}} 
-          // href="/tripdetails" 
+          <td><button style={{color: '#ff7f50', border:'none', backgroundColor: 'transparent'}}
           onClick={(()=>{
-            props.setSingleTrip(trip)
+            props.setSingleTrip(any)
           })}>
-            {trip.destination}
+            {any.destination}
             </button>
           </td>
-          <td style={{fontFamily: 'Roboto'}}>{trip.departDate}</td>
-          <td style={{fontFamily: 'Roboto'}}>{trip.returnDate}</td>
-          <td style={{fontFamily: 'Roboto'}}>{trip.companions}</td>
-          <td style={{fontFamily: 'Roboto'}}>{trip.occasion}</td>
+          <td style={{fontFamily: 'Roboto'}}>{any.departDate}</td>
+          <td style={{fontFamily: 'Roboto'}}>{any.returnDate}</td>
+          <td style={{fontFamily: 'Roboto'}}>{any.companions}</td>
+          <td style={{fontFamily: 'Roboto'}}>{any.occasion}</td>
           <td>
             <Button
             style={{backgroundColor: '#ff7f50',
@@ -45,7 +42,7 @@ const TripsTable = (props) => {
             border: 'none'
             }} id="buttonHover" 
               onClick={() => {
-                props.editUpdateTrip(trip);
+                props.editUpdateTrip(any);
                 props.updateOn()
               }}
             >
@@ -63,7 +60,7 @@ const TripsTable = (props) => {
               border: 'none'
               }}
               onClick={() => {
-                deleteTrip(trip)
+                deleteTrip(any)
               }}
             >
               Delete

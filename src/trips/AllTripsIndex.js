@@ -51,7 +51,14 @@ const TripIndex = (props) => {
   (
   <div>
   {/* <TripDetailsDisplay trip={singleTrip} isAuth={props.isAuth} token={props.token}/> */}
-  <ThingsIndex trip={singleTrip} isAuth={props.isAuth} token={props.token}/> 
+  <ThingsIndex 
+  trip={singleTrip} 
+  isAuth={props.isAuth} 
+  token={props.token} 
+  trips={trips} 
+  tripToUpdate={tripToUpdate}
+  updateOff={updateOff}
+  /> 
   {/* <PlacesIndex trip={singleTrip} isAuth={props.isAuth} token={props.token}/> 
   <ThoughtsIndex trip={singleTrip} isAuth={props.isAuth} token={props.token}/> */}
   </div>

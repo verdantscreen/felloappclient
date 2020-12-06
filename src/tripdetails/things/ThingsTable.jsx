@@ -2,13 +2,9 @@ import React, {useState} from 'react'
 import { Table, Button, FormGroup, Col, Input, Label } from "reactstrap";
 
 const ThingsTable = (props) => {
-  console.log("THINGSTABLE PROPS fix, no longer has empty things array 1020PM", props);
-  console.log("THINGSTABLE mapping over this", props.things);
-  const [packedCheck, setPackedCheck] = useState(false);
-  const [repackedCheck, setRepackedCheck] = useState(false);
   
-  const deleteThing = (thing) => {
-  fetch(`http://localhost:3001/things/trip${props.tripId}/thing${thing.id}`, {
+  const deleteThing = (single) => {
+  fetch(`http://localhost:3001/things/trip${props.tripId}/thing${single.id}`, {
     method: "DELETE",
     headers: new Headers({
       "Content-Type": "application/json",
@@ -18,15 +14,16 @@ const ThingsTable = (props) => {
 };
 
 const thingMap = () => {
-  return props.things.map((single, index) => {
+  return props.things.map((mappedOver, index) => {
     return (
       <tr 
       key={index}
       >
         <th scope="row"></th>
-        <td style={{fontFamily: 'Roboto'}}>{single.thing}</td>
-        <td style={{fontFamily: 'Roboto'}}>{single.quantity}</td>
-        <td style={{fontFamily: 'Roboto'}}>{single.packed}<FormGroup row>
+        <td style={{fontFamily: 'Roboto'}}>{mappedOver.thing}</td>
+        <td style={{fontFamily: 'Roboto'}}>{mappedOver.quantity}</td>
+        <td style={{fontFamily: 'Roboto'}}>{mappedOver.packed}
+        {/* <FormGroup row>
         <Col sm={{ size: 10 }}>
           <FormGroup check>
             <Label check>
@@ -34,8 +31,10 @@ const thingMap = () => {
             </Label>
           </FormGroup>
         </Col>
-      </FormGroup></td>
-        <td style={{fontFamily: 'Roboto'}}>{single.repacked}<FormGroup row>
+      </FormGroup> */}
+      </td>
+        <td style={{fontFamily: 'Roboto'}}>{mappedOver.repacked}
+        {/* <FormGroup row>
         <Col sm={{ size: 10 }}>
           <FormGroup check>
             <Label check>
@@ -43,9 +42,10 @@ const thingMap = () => {
             </Label>
           </FormGroup>
         </Col>
-      </FormGroup></td>
+      </FormGroup> */}
+      </td>
         <td>
-          <Button
+          {/* <Button
           style={{backgroundColor: '#ff7f50',
           color: '#292a2b',
           fontFamily: 'Corben',
@@ -56,12 +56,12 @@ const thingMap = () => {
           border: 'none'
           }} id="buttonHover" 
             onClick={() => {
-              props.editUpdateThing(single);
+              props.editUpdateThing(mappedOver);
               props.updateOn()
             }}
           >
             Update
-          </Button>
+          </Button> */}
           <Button
             style={{textAlign:"center",
             backgroundColor: '#292a2b',
@@ -74,7 +74,7 @@ const thingMap = () => {
             border: 'none'
             }}
             onClick={() => {
-              deleteThing(single)
+              deleteThing(mappedOver)
             }}
           >
             Delete
@@ -110,3 +110,8 @@ const thingMap = () => {
 }
 
 export default ThingsTable;
+
+// console.log("THINGSTABLE PROPS fix, no longer has empty things array 1020PM", props);
+  // console.log("THINGSTABLE mapping over this", props.things);
+  // const [packedCheck, setPackedCheck] = useState(false);
+  // const [repackedCheck, setRepackedCheck] = useState(false);
