@@ -51,6 +51,9 @@ const TripIndex = (props) => {
   (
   <div>
   {/* <TripDetailsDisplay trip={singleTrip} isAuth={props.isAuth} token={props.token}/> */}
+  <Container >
+      <Row>
+        {/* <Col > */}
   <ThingsIndex 
   trip={singleTrip} 
   isAuth={props.isAuth} 
@@ -58,9 +61,44 @@ const TripIndex = (props) => {
   trips={trips} 
   tripToUpdate={tripToUpdate}
   updateOff={updateOff}
-  /> 
-  {/* <PlacesIndex trip={singleTrip} isAuth={props.isAuth} token={props.token}/> 
-  <ThoughtsIndex trip={singleTrip} isAuth={props.isAuth} token={props.token}/> */}
+  updateOn={updateOn}
+  updateOpen={updateOpen}
+  editUpdateTrip={editUpdateTrip}
+  />
+    <br/>
+  <hr/>
+  <br/>
+{/* </Col> */}
+ 
+{/* <Col> */}
+  <PlacesIndex
+  trip={singleTrip} 
+  isAuth={props.isAuth} 
+  token={props.token} 
+  trips={trips} 
+  tripToUpdate={tripToUpdate}
+  updateOff={updateOff}
+  updateOn={updateOn}
+  updateOpen={updateOpen}
+  editUpdateTrip={editUpdateTrip}
+  />
+  {/* </Col> */}
+  <br/>
+  <hr/>
+  <br/>
+  <ThoughtsIndex
+   trip={singleTrip} 
+   isAuth={props.isAuth} 
+   token={props.token} 
+   trips={trips} 
+   tripToUpdate={tripToUpdate}
+   updateOff={updateOff}
+   updateOn={updateOn}
+   updateOpen={updateOpen}
+   editUpdateTrip={editUpdateTrip}
+   />
+  </Row>
+  </Container>
   </div>
   ) : (
     <div>

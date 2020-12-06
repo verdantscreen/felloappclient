@@ -23,18 +23,20 @@ const thingMap = () => {
         <td style={{fontFamily: 'Roboto'}}>{mappedOver.thing}</td>
         <td style={{fontFamily: 'Roboto'}}>{mappedOver.quantity}</td>
         <td style={{fontFamily: 'Roboto'}}>{mappedOver.packed}
-        {/* <FormGroup row>
+        <FormGroup row>
         <Col sm={{ size: 10 }}>
           <FormGroup check>
             <Label check>
-              <Input onClick={(e) => setPackedCheck(true)} type="checkbox" id="checkbox1" />
+              <Input 
+              // onClick={(e) => setPackedCheck(true)} 
+              type="checkbox" id="checkbox1" />
             </Label>
           </FormGroup>
         </Col>
-      </FormGroup> */}
+      </FormGroup>
       </td>
         <td style={{fontFamily: 'Roboto'}}>{mappedOver.repacked}
-        {/* <FormGroup row>
+        <FormGroup row>
         <Col sm={{ size: 10 }}>
           <FormGroup check>
             <Label check>
@@ -42,10 +44,10 @@ const thingMap = () => {
             </Label>
           </FormGroup>
         </Col>
-      </FormGroup> */}
+      </FormGroup>
       </td>
         <td>
-          {/* <Button
+          <Button
           style={{backgroundColor: '#ff7f50',
           color: '#292a2b',
           fontFamily: 'Corben',
@@ -61,7 +63,7 @@ const thingMap = () => {
             }}
           >
             Update
-          </Button> */}
+          </Button>
           <Button
             style={{textAlign:"center",
             backgroundColor: '#292a2b',

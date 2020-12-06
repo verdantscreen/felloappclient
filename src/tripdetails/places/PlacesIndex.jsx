@@ -18,7 +18,7 @@ const PlacesIndex = (props) => {
         .then((res) => res.json())
         .then((tripdata) => {
           setTrips(tripdata);
-          console.log("*****PlacesIndex c.l.", tripdata)
+          console.log("*****PlacesIndex c.l. GET single trip", tripdata)
         })
         .catch(err => console.log(err))
     }
@@ -29,10 +29,13 @@ const PlacesIndex = (props) => {
 
     return(
         <div>
-          <h1>Places Index</h1>
-        <h3 style={{marginTop:'50px'}}>Places Index Content? {props.trip.destination}:</h3>
+          <br/>
+          <hr/>
+          <br/>
+          {/* <h1>Places Index</h1> */}
+        <h3 style={{marginTop:'50px'}}>What's for kicks in {props.trip.destination}</h3>
         <br/>
-    <p style={{fontFamily:'Roboto', fontSize:'large'}}>Looks like you're heading there {props.trip.departDate} and you'll be back by {props.trip.returnDate}.</p>
+    <p style={{fontFamily:'Roboto', fontSize:'large'}}>You'll need something to keep you occupied between {props.trip.departDate} and {props.trip.returnDate}. What've you got planned?</p>
          <PlacesIndexMap trips={trips} trip={props.trip} setTrips={setTrips} allTrips={props.allTrips} token={props.token} places={places} setPlaces={setPlaces} />
         </div>
     )

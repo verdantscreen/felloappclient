@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "reactstrap";
+import ThoughtsIndexMap from './ThoughtsIndexMap';
 // import TripAdd from "./TripAdd";
 // import TripsTable from "./AllTripsTable";
 // import TripEdit from "./TripEdit";
@@ -7,6 +8,7 @@ import { Container, Row, Col } from "reactstrap";
 
 const ThoughtsList = (props) => {
   const [trips, setTrips] = useState([]);
+  const [thoughts, setThoughts] = useState([]);
   const [updateOpen, setUpdateOpen] = useState(false);
   const [tripToUpdate, setTripToUpdate] = useState({});
 
@@ -44,45 +46,16 @@ const ThoughtsList = (props) => {
   }, [])
 
   return (
-    <>
-    <Container>
-      <Row>
-        <Col md="2">
-          {/* <TripAdd 
-          fetchTrips={fetchTrips} 
-          token={props.token}
-          trips={trips}
-          />*/}
-        </Col> 
-        <Col md="10">
-          {/* <TripsTable
-            trips={trips}
-            editUpdateTrip={editUpdateTrip}
-            updateOn={updateOn}
-            fetchTrips={fetchTrips}
-            token={props.token}
-          /> */}
-        </Col>
-        {/* {updateOpen ? 
-          // <TripEdit
-          //   tripToUpdate={tripToUpdate}
-          //   updateOff={updateOff}
-          //   token={props.token}
-          //   fetchTrips={fetchTrips}
-          // /> :
-          <></>} */}
-      </Row>
-    </Container>
-    {/* <div style={{display:'none', visibility:'hidden'}}>
-     <TripDetailsDisplay 
-            style={{display:'none', visibility:'hidden'}} 
-            trips={trips}
-            editUpdateTrip={editUpdateTrip}
-            updateOn={updateOn}
-            fetchTrips={fetchTrips}
-            token={props.token}/>
-     </div> */}
-     </>
+    <div>
+       <br/>
+      <hr/>
+      <br/>
+          {/* <h1>Thoughts Index</h1> */}
+        <h3 style={{marginTop:'50px'}}>Jot Down your Thoughts</h3>
+        <br/>
+    <p style={{fontFamily:'Roboto', fontSize:'large'}}>In the long run, boldface type is usually better than misty, watercolored memories.</p>
+    <ThoughtsIndexMap trips={trips} trip={props.trip} setTrips={setTrips} allTrips={props.allTrips} token={props.token} thoughts={thoughts} setThoughts={setThoughts} />
+     </div>
   )
 }
 

@@ -55,7 +55,7 @@ return(
 <>
     <br/>
     <br/>
-      <h3 style={{color:"#292a2b"}}>Add an Item-to-Pack</h3>
+      <h3 style={{color:"#292a2b"}}>Add a Place</h3>
       <br/>
     {/* <Form onSubmit={handleSubmit} >
       <FormGroup

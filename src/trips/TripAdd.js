@@ -101,9 +101,10 @@ console.log("ln 6 TripAdd props.token", props.token);
             onChange={(e) => setOccasion(e.target.value)}
           >
             <option></option>
-            <option style={{fontFamily: 'Corben'}} value="Just bc">just because</option>
-            <option style={{fontFamily: 'Corben'}} value="Family">family</option>
-            <option style={{fontFamily: 'Corben'}} value="Work">work</option>
+            <option style={{fontFamily: 'Corben', fontSize:'small'}} value="just bc">just because</option>
+            <option style={{fontFamily: 'Corben', fontSize:'small'}} value="family">family</option>
+            <option style={{fontFamily: 'Corben', fontSize:'small'}} value="work">work</option>
+            <option style={{fontFamily: 'Corben', fontSize:'small'}} value="use Update to specify">something else</option>
             </Input>
         </FormGroup>
         <Button 

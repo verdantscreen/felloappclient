@@ -58,14 +58,15 @@ return(
 <>
     <br/>
     <br/>
-      <h3 style={{color:"#292a2b"}}>Add an Item-to-Pack</h3>
+      <h3 style={{color:"#292a2b"}}>Let's Pack</h3>
+      <p>What're you bringing with you?</p>
       <br/>
       <Form onSubmit={handleSubmit}  >
       <InputGroup >
       <InputGroupAddon addonType="prepend">Item(s):</InputGroupAddon>
-        <Input placeholder="how many?" min={1} max={100} type="number" step="1" name="quantity" value={quantity} onChange={(e) => setQuantity(e.target.value)} />
+        <Input style={{fontFamily:'Roboto', textAlign:'right'}} placeholder="how many?" min={1} max={100} type="number" step="1" name="quantity" value={quantity} onChange={(e) => setQuantity(e.target.value)} />
         <InputGroupAddon addonType="append"></InputGroupAddon>
-        <Input style={{borderRadius:'0px 10px 10px 0px'}} placeholder="of what?" name="thing" value={thing} onChange={(e) => setThing(e.target.value)}></Input>
+        <Input style={{borderRadius:'0px 5px 5px 0px', fontFamily:'Roboto'}} placeholder="of what?" required name="thing" value={thing} onChange={(e) => setThing(e.target.value)}></Input>
         <InputGroupAddon addonType="append">
           <Button 
           type="submit" 
@@ -80,7 +81,7 @@ return(
                 border: 'none'
                 }} 
           id="buttonHover" 
-          > + </Button>
+          > Add </Button>
         </InputGroupAddon>
       </InputGroup>
       </Form>
@@ -89,56 +90,3 @@ return(
 };
 
 export default ThingAdd;
-
-      {/* <Form onSubmit={handleSubmit} >
-        <FormGroup>
-          <Label htmlFor="thing">Thing:</Label>
-          <Input
-          style={{fontFamily:'Roboto', fontSize: 'medium'}}
-            name="thing"
-            value={thing}
-            onChange={(e) => setThing(e.target.value)}
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label htmlFor="quantity">Quantity:</Label>
-          <Input
-            style={{textAlign:"right", fontFamily:'Roboto', fontSize:'small', fontWeight:'bolder'}}
-            name="quantity"
-            value={quantity}
-            onChange={(e) => setQuantity(e.target.value)}
-          >
-          </Input>
-        </FormGroup>
-        <FormGroup>
-          <Label htmlFor="packed">Packed:</Label>
-          <Input
-            style={{textAlign:"right", fontFamily: 'Roboto', fontSize:'small', fontWeight:'bolder'}}
-            name="packed"
-            value={packed}
-            onChange={(e) => setPacked(e.target.value)}
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label htmlFor="repacked">Repacked:</Label>
-          <Input
-            style={{fontFamily: 'Roboto'}}
-            name="repacked"
-            value={repacked}
-            onChange={(e) => setRepacked(e.target.value)}
-          />
-        </FormGroup>
-        <Button 
-        type="submit" 
-        style={{textAlign:"center",
-                backgroundColor: '#ff7f50',
-                color: '#292a2b',
-                fontFamily: 'Corben',
-                marginRight: '5px',
-                borderRadius: '10px',
-                transition: 'transform 0.3s ease',
-                boxShadow: '5px 5px 5px 0px rgba(85,61,52,0.3)',
-                border: 'none'
-                }} id="buttonHover" 
-        >Log Thing</Button>
-      </Form> */}

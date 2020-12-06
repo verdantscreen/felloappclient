@@ -40,15 +40,16 @@ console.log(props.token);
   return (
     <>
     <br/>
-    <br/>
-      <h3 style={{color:"#292a2b"}}>Log a Thought</h3>
-      <br/>
+    {/* <br/> */}
+      {/* <h3 style={{color:"#292a2b"}}>Make an Entry</h3> */}
+      {/* <br/> */}
       <Form onSubmit={handleSubmit} >
         <FormGroup>
-          <Label htmlFor="date">date Known:</Label>
+          <Label htmlFor="date">Entry Date:</Label>
           <Input
-          style={{fontFamily:'Roboto', fontSize: 'medium'}}
+          style={{textAlign:"right", fontFamily:'Roboto', fontSize:'small', fontWeight:'bolder'}}
             name="date"
+            type="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
           />
@@ -57,7 +58,6 @@ console.log(props.token);
           <Label htmlFor="thought">Get Outta Town:</Label>
           <Input
             style={{textAlign:"right", fontFamily:'Roboto', fontSize:'small', fontWeight:'bolder'}}
-            type="date"
             name="thought"
             value={thought}
             onChange={(e) => setThought(e.target.value)}
