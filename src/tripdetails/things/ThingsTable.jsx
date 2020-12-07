@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { Table, Button, FormGroup, Col, Input, Label } from "reactstrap";
+import ThingEdit from './ThingEdit';
 
 const ThingsTable = (props) => {
   
@@ -22,8 +23,8 @@ const thingMap = () => {
         <th scope="row"></th>
         <td style={{fontFamily: 'Roboto'}}>{mappedOver.thing}</td>
         <td style={{fontFamily: 'Roboto'}}>{mappedOver.quantity}</td>
-        <td style={{fontFamily: 'Roboto'}}>{mappedOver.packed}
-        <FormGroup row>
+        {/* <td style={{fontFamily: 'Roboto'}}>{mappedOver.packed}</td> */}
+        {/* <td><FormGroup>
         <Col sm={{ size: 10 }}>
           <FormGroup check>
             <Label check>
@@ -36,7 +37,7 @@ const thingMap = () => {
       </FormGroup>
       </td>
         <td style={{fontFamily: 'Roboto'}}>{mappedOver.repacked}
-        <FormGroup row>
+        <FormGroup>
         <Col sm={{ size: 10 }}>
           <FormGroup check>
             <Label check>
@@ -45,9 +46,10 @@ const thingMap = () => {
           </FormGroup>
         </Col>
       </FormGroup>
-      </td>
+      </td> */}
+      {/* <td style={{fontFamily: 'Roboto'}}>{mappedOver.packed}</td> */}
         <td>
-          <Button
+          {/* <Button
           style={{backgroundColor: '#ff7f50',
           color: '#292a2b',
           fontFamily: 'Corben',
@@ -59,11 +61,12 @@ const thingMap = () => {
           }} id="buttonHover" 
             onClick={() => {
               props.editUpdateThing(mappedOver);
-              props.updateOn()
+              props.editModalToggle()
             }}
           >
             Update
-          </Button>
+          </Button> */}
+          <ThingEdit thingToUpdate={mappedOver} fetchThings={props.fetchThings} token={props.token} />
           <Button
             style={{textAlign:"center",
             backgroundColor: '#292a2b',
@@ -86,8 +89,6 @@ const thingMap = () => {
     )
   })
 }
-
-
     return(
         <>
          <br />
@@ -99,8 +100,8 @@ const thingMap = () => {
             <th> </th>
             <th>What?</th>
             <th>How Many?</th>
-            <th>Packed Up?</th>
-            <th>Repacked?</th>
+            {/* <th>Packed Up?</th>
+            <th>Repacked?</th> */}
           </tr>
         </thead>
       <tbody>

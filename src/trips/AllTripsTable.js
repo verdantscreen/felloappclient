@@ -4,8 +4,8 @@ import { Table, Button } from "reactstrap";
 
 const TripsTable = (props) => {
 
-  const deleteTrip = (frog) => {
-    fetch(`http://localhost:3001/mytrips/trip${frog.id}`, {
+  const deleteTrip = (trip) => {
+    fetch(`http://localhost:3001/mytrips/trip${trip.id}`, {
       method: "DELETE",
       headers: new Headers({
         "Content-Type": "application/json",

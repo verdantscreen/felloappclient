@@ -33,9 +33,9 @@ const PlacesIndex = (props) => {
           <hr/>
           <br/>
           {/* <h1>Places Index</h1> */}
-        <h3 style={{marginTop:'50px'}}>What's for kicks in {props.trip.destination}</h3>
+        {/* <h3 style={{marginTop:'50px'}}>{props.trip.destination} Happenings</h3> */}
         <br/>
-    <p style={{fontFamily:'Roboto', fontSize:'large'}}>You'll need something to keep you occupied between {props.trip.departDate} and {props.trip.returnDate}. What've you got planned?</p>
+    <p style={{fontFamily:'Roboto', fontSize:'large'}}> What's on the agenda?</p>
          <PlacesIndexMap trips={trips} trip={props.trip} setTrips={setTrips} allTrips={props.allTrips} token={props.token} places={places} setPlaces={setPlaces} />
         </div>
     )

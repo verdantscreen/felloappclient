@@ -30,13 +30,12 @@ const Signin = (props) => {
         props.updateToken(data.sessionToken);
         props.setIsAuth(true);
       }
-        
     })
 }
 
   return (
     <div className="root">
-      {localStorage.getItem('token') === null ? <Button style={{backgroundColor: '#f2f2e7',
+      {localStorage.getItem('token') === null ? <Button style={{marginLeft: '15px', backgroundColor: '#f2f2e7',
         color: 'black',
         borderRadius: '10px',
         transition: 'transform 0.3s ease',

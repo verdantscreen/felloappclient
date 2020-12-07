@@ -59,7 +59,7 @@ return(
     <br/>
     <br/>
       <h3 style={{color:"#292a2b"}}>Let's Pack</h3>
-      <p>What're you bringing with you?</p>
+      <p style={{fontFamily:"Roboto"}}>What're you bringing with you?</p>
       <br/>
       <Form onSubmit={handleSubmit}  >
       <InputGroup >

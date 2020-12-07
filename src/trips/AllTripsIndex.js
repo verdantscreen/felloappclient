@@ -4,7 +4,7 @@ import TripAdd from "./TripAdd";
 import TripsTable from "./AllTripsTable";
 import TripEdit from "./TripEdit";
 import ThingsIndex from '../tripdetails/things/ThingsIndex';
-import PlacesIndex from '../tripdetails/places/PlacesIndex';
+// import PlacesIndex from '../tripdetails/places/PlacesIndex';
 import ThoughtsIndex from '../tripdetails/thoughts/ThoughtsIndex';
 // import TripDetailsDisplay from "../tripdetails/TripDetailsDisplay";
 
@@ -30,9 +30,9 @@ const TripIndex = (props) => {
       .catch(err => console.log(err))
   }
 
-  const editUpdateTrip = (trip) => {
-    setTripToUpdate(trip);
-    console.log("ALLTRIPSINDEX what is trip?: ", trip);
+  const editUpdateTrip = (whatever) => {
+    setTripToUpdate(whatever);
+    console.log("ALLTRIPSINDEX what is whatever?: ", whatever);
   }
 
   const updateOn = () => {
@@ -71,7 +71,7 @@ const TripIndex = (props) => {
 {/* </Col> */}
  
 {/* <Col> */}
-  <PlacesIndex
+  {/* <PlacesIndex
   trip={singleTrip} 
   isAuth={props.isAuth} 
   token={props.token} 
@@ -81,12 +81,12 @@ const TripIndex = (props) => {
   updateOn={updateOn}
   updateOpen={updateOpen}
   editUpdateTrip={editUpdateTrip}
-  />
+  /> */}
   {/* </Col> */}
   <br/>
   <hr/>
   <br/>
-  <ThoughtsIndex
+  {/* <ThoughtsIndex
    trip={singleTrip} 
    isAuth={props.isAuth} 
    token={props.token} 
@@ -96,7 +96,7 @@ const TripIndex = (props) => {
    updateOn={updateOn}
    updateOpen={updateOpen}
    editUpdateTrip={editUpdateTrip}
-   />
+   /> */}
   </Row>
   </Container>
   </div>

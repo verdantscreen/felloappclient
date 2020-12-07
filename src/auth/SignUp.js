@@ -8,19 +8,19 @@ function Signup(props) {
     className
   } = props;
 
-  const [signupModal, setSignupModal] = useState(false);
-
-  const toggle = () => setSignupModal(!signupModal);
-
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const [signupModal, setSignupModal] = useState(false);
+
+  const toggle = () => setSignupModal(!signupModal);
 
   let handleSubmit = (event) => {
     event.preventDefault();
     fetch('http://localhost:3001/user/signup', {
       method: 'POST',
-      body: JSON.stringify({ user: { name: name, email: email, password: password } }),
+      body: JSON.stringify({user:{name: name, email: email, password: password}}),
       headers: new Headers({
         'Content-Type': 'application/json'
       })
@@ -28,19 +28,20 @@ function Signup(props) {
       (response) => response.json()
     ).then((data) => {
       props.updateToken(data.sessionToken);
+      props.setIsAuth(true); //added late sun, comment out?
     }).then(alert('Your account has been created!'))
   };
 
   return (
     <div className="root">
-      {localStorage.getItem('token') === null ? <Button type="button" id="buttonHover" style=
+      {localStorage.getItem('token') === null ? <Button style=
         {{backgroundColor: '#f2f2e7',
         color: 'black',
         borderRadius: '10px',
         transition: 'transform 0.3s ease',
         boxShadow: '5px 5px 5px 0px rgba(85,61,52,0.3)',
         border: 'none'
-        }} onClick={toggle}>Sign Up{buttonLabel}</Button>
+        }} id="buttonHover" onClick={toggle}>Sign Up {buttonLabel}</Button>
         : null}
       <Modal isOpen={signupModal} toggle={toggle} className={className}>
         <ModalHeader style={{fontFamily: 'Corben'}} toggle={toggle}>Become a fello traveler!</ModalHeader>
@@ -67,7 +68,7 @@ function Signup(props) {
                 transition: 'transform 0.3s ease',
                 boxShadow: '5px 5px 5px 0px rgba(85,61,52,0.3)',
                 border: 'none'
-                }} id="buttonHover" type="submit" onClick={toggle}>Sign Up</Button>{' '}
+                }} id="buttonHover" onClick={toggle} type="submit">Sign Up</Button>{' '}
               <Button id="buttonHover" style=
               {{borderRadius: '10px',
               color: "#292a2b",

@@ -5,7 +5,7 @@ import Landing from './pages/Landing';
 import Sitebar from './components/Sitebar';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'; 
 import TripIndex from "./trips/AllTripsIndex";
-import TripDetailsDisplay from "./tripdetails/TripDetailsDisplay";
+// import TripDetailsDisplay from "./tripdetails/TripDetailsDisplay";
 
   function App() {
     const [token, setToken] = useState("");
@@ -22,7 +22,7 @@ import TripDetailsDisplay from "./tripdetails/TripDetailsDisplay";
           else {setToken('')
         setIsAuth(false);
         }
-      } else console.log("not working")
+      } else console.log("else else hit")
     }, []); //remove isAuth
 
     const updateToken = (sessionToken) => {
@@ -37,12 +37,27 @@ if(isAuth){
     <div className="App" style={{backgroundColor: "#f2f2e7"}}>
       <h1 style={{color: "#292a2b"}}>fello</h1>
       <Router >
-      <Sitebar updateToken={updateToken} token={token} setToken={setToken } isAuth={isAuth} setIsAuth={setIsAuth}/>
+      <Sitebar 
+      updateToken={updateToken} 
+      token={token} 
+      setToken={setToken } 
+      isAuth={isAuth} 
+      setIsAuth={setIsAuth}/>
+      <TripIndex 
+            token={token} 
+            setToken={setToken} 
+            isAuth={isAuth}
+            /> 
         <Switch>
-            <Route exact path="/"><Landing/></Route>
-            <Route exact path="/mytrips/"> <TripIndex token={token} setToken={setToken} isAuth={isAuth}/> </Route>
+            {/* <Route exact path="/"><Landing/></Route> */}
+            <Route exact path="/mytrips/"> 
+            {/* <TripIndex 
+            token={token} 
+            setToken={setToken} 
+            isAuth={isAuth}
+            />  */}
+            </Route>
             {/* <Route exact path="/tripdetails"> <TripDetailsDisplay token={token} setToken={setToken} isAuth={isAuth}/></Route> */}
-
       </Switch>
       </Router>
       {/* <Landing/> */}
@@ -51,21 +66,19 @@ if(isAuth){
 } else {
   return(
     <Router >
-      <Sitebar updateToken={updateToken} token={token} setToken={setToken } isAuth={isAuth} setIsAuth={setIsAuth}/>
+      <div className="App" style={{backgroundColor: "#f2f2e7"}}>
+      <h1 style={{color: "#292a2b"}}>fello</h1>
+      <Sitebar 
+      updateToken={updateToken} 
+      token={token} 
+      setToken={setToken } 
+      isAuth={isAuth} 
+      setIsAuth={setIsAuth}/>
+      <Landing/>
+      </div>
     </Router>
   )
 }
 }
 
 export default App;
-
-// import React, { Component } from 'react';
-// import Sitebar from './components/Sitebar';
-// import {BrowserRouter as Router} from 'react-router-dom'; 
-// import "bootstrap/dist/css/bootstrap.min.css";
-
-// class App extends Component {
-//   render(){
-//     return <Sitebar updateToken={updateToken()} token={token} setToken={setToken()} />
-//   }
-// }

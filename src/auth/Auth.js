@@ -7,15 +7,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const Auth = (props) => {
     console.log(props.isAuth)
     return(
-        <Container className="auth-container">
-            <Col>
-                    <Signup setIsAuth={props.setIsAuth} updateToken={props.updateToken}/>
-            </Col>
-            <Col/>
-            <Col>
-                    <Signin setIsAuth={props.setIsAuth} updateToken={props.updateToken}/>
-            </Col>
-        </Container>
+        <div>
+        {/* <Container className="auth-container"> */}
+        <Row>
+            <Signup setIsAuth={props.setIsAuth} updateToken={props.updateToken}/>
+            <Signin setIsAuth={props.setIsAuth} updateToken={props.updateToken}/>
+        </Row>
+        </div>
     )
 }
 

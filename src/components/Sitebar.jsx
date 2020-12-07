@@ -24,11 +24,8 @@ import TripDetailsDisplay from "../tripdetails/TripDetailsDisplay";
 
 const Sitebar = (props) => {
     const [isOpen, setIsOpen] = useState(false);
-  
-
     const toggle = () => setIsOpen(!isOpen);
       
-
     const logOut = () => {
       localStorage.clear();
       props.setToken('');
@@ -38,7 +35,7 @@ const Sitebar = (props) => {
     console.log(props.isAuth);
     return(
         <div>
-        <Navbar style={{color: "#f2f2e7", backgroundColor: "coral"}} light expand="md">
+        <Navbar style={{color: "#f2f2e7", backgroundColor: "coral", fontFamily:'Corben'}} light expand="md">
             <NavbarBrand style={{color: "#292a2b", marginLeft: 25}} href="/">  * f * </NavbarBrand>
             <NavbarToggler onClick={toggle} />
             <Collapse isOpen={isOpen} navbar>
@@ -58,12 +55,10 @@ const Sitebar = (props) => {
             transition: 'transform 0.3s ease',
             boxShadow: '5px 5px 5px 0px rgba(85,61,52,0.3)',
             border: 'none' }} onClick={logOut}>Sign Out</Button> : null}
-          
             </NavLink>
             <NavbarText><span className="nbtext1">Wherever you go, </span><span className="nbtext2"> fello !</span></NavbarText>
             </Collapse>
-        </Navbar>
-        
+        </Navbar> 
     </div>
     )
 }

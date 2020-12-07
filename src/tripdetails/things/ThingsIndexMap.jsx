@@ -6,11 +6,11 @@ import ThingsTable from './ThingsTable';
 
 const ThingsIndexMap = (props) => {
 console.log("TIM props, empty array for trips! allTrips undefined; trips = trip issues at 3:10PM", props)
-    const [updateOpen, setUpdateOpen] = useState(false);
+    // const [updateOpen, setUpdateOpen] = useState(false);
     const [thingToUpdate, setThingToUpdate] = useState({});
 console.log("LINE 11 props.trips in TIM", props.trips);
     const [things, setThings] = useState([]);
-    const [thingsMsg, setThingsMsg] = useState(`What are you bringing with you?`);
+    const [singleThing, setSingleThing] = useState(); //per AllTripsIndex
 
     const fetchThings = () => {
         // if(props.trip.id !== undefined){
@@ -29,18 +29,23 @@ console.log("LINE 11 props.trips in TIM", props.trips);
             .catch(err => err)
         }
 
-    const editUpdateThing = (thing) => {
-        setThingToUpdate(thing);
-        console.log(thing);
+    const editUpdateThing = (something) => {
+        setThingToUpdate(something);
+        console.log("editUpdateThing function param called thing", something);
     }
 
-    const updateOn = () => {
-        setUpdateOpen(true);
-    }
+    // const updateOnThing = () => {
+    //     setUpdateOpenThing(true);
+    // }
 
-    const updateOff = () => {
-        setUpdateOpen(false);
-    }
+    // const updateOffThing = () => {
+    //     setUpdateOpenThing(false);
+    // }
+
+    // const editModalToggle = () => {
+    //     setUpdateOpen(!updateOpen);
+    //     console.log("editModalToggle func hit");
+    // } // WORKAROUND FOR UPDATE MODAL FROM 12/6
 
     // fetchThings() needs check to see if trips has populated yet before it runs
     useEffect(() => {
@@ -53,7 +58,7 @@ console.log("LINE 11 props.trips in TIM", props.trips);
         //         console.log("else statement hit")
         //     }, 3000)
         // }
-    }, [ props.trip])
+    }, [props.trip])
 
     return(
         <div>
@@ -74,24 +79,26 @@ console.log("LINE 11 props.trips in TIM", props.trips);
                     things={things}
                     tripId={props.trip.id}
                     setTrips={props.setTrips}
+                    // thingToUpdate={thingToUpdate}
                     editUpdateThing={editUpdateThing}
-                    updateOn={updateOn}
+                    // editModalToggle={editModalToggle}
                     fetchThings={fetchThings}
                     />
                 </Col>
-                {props.updateOpen ? 
+                {/* {editModalToggle ? 
                 <ThingEdit
                     token={props.token}
-                    things={things}
+                    // things={things}
                     tripId={props.trip.id}
                     setTrips={props.setTrips}
                     editUpdateThing={editUpdateThing}
-                    updateOn={updateOn}
+                    editModalToggle={editModalToggle}
                     thingToUpdate={thingToUpdate}
-                    updateOff={updateOff}
+                    updateOpen={updateOpen}
+                    // updateOff={updateOff}
                     fetchThings={fetchThings}
                     /> :
-                    <></>}
+                    <></>} // moved to ThingEdit*/}
             </Row>
         </Container>
         </div>
