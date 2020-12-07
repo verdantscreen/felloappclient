@@ -8,7 +8,7 @@ const PlacesIndex = (props) => {
 
     const fetchTrips = () => {
       console.log("HERE YE PlacesIndex props.trip.id", props.trip);
-      fetch(`http://localhost:3001/mytrips/trip${props.trip.id}`, {
+      fetch(`https://server-fello-app.herokuapp.com/mytrips/trip${props.trip.id}`, {
         method: 'GET',
         headers: new Headers({
           'Content-Type': 'application/json',

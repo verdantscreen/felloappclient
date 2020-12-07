@@ -24,7 +24,7 @@ console.log("prop", props);
     console.log("PlaceAdd before prevent def", tripId)
     e.preventDefault();
     console.log("PlaceAdd after prevent def", props)
-  fetch(`http://localhost:3001/things/trip${tripId}/addthing`, {
+  fetch(`https://server-fello-app.herokuapp.com/things/trip${tripId}/addthing`, {
       method: "POST",
       body: JSON.stringify({
           packdata: {

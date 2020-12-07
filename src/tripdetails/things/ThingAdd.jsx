@@ -26,7 +26,7 @@ const handleSubmit = (e) => {
   console.log("THINGADD before prevent def TRIPID", tripId)
     e.preventDefault();
     console.log("THINGADD after prevent def PROPS", props)
-  fetch(`http://localhost:3001/things/trip${tripId}/addthing`, {
+  fetch(`https://server-fello-app.herokuapp.com/things/trip${tripId}/addthing`, {
       method: "POST",
       body: JSON.stringify({
           packdata: {

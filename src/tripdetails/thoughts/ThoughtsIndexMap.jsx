@@ -14,7 +14,7 @@
 
 //     const fetchThoughts = () => {
 //         // if(props.trip.id !== undefined){
-//             const baseUrl = `http://localhost:3001/thoughts/trip${props.trip.id}/allthoughts`
+//             const baseUrl = `https://server-fello-app.herokuapp.com/thoughts/trip${props.trip.id}/allthoughts`
 //             fetch(baseUrl, {
 //                 method: 'GET',
 //                 headers: new Headers({

@@ -21,7 +21,7 @@ const ThingEdit = (props) => {
 
 const thingUpdate = (e, thing) => {
     e.preventDefault(); //needed but interfering?
-  fetch(`http://localhost:3001/things/trip${props.thingToUpdate.tripId}/thing${props.thingToUpdate.id}`, {
+  fetch(`https://server-fello-app.herokuapp.com/things/trip${props.thingToUpdate.tripId}/thing${props.thingToUpdate.id}`, {
       method: 'PUT',
       body: JSON.stringify({
           packdata: {

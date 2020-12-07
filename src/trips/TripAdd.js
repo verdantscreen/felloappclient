@@ -16,7 +16,7 @@ console.log("ln 6 TripAdd props.token", props.token);
     console.log("before prevent def")
     // e.preventDefault();
     console.log("after prevent def")
-    fetch(`http://localhost:3001/mytrips/addtrip`, {
+    fetch(`https://server-fello-app.herokuapp.com/mytrips/addtrip`, {
       method: "POST",
       body: JSON.stringify({
         tripdata: {

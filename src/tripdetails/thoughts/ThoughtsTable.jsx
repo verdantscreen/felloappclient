@@ -35,7 +35,7 @@
 
 // //   //change fetch url interpolation?
 // //   const deleteTrip = (trip) => {
-// //     fetch(`http://localhost:3001/thoughts/trip${props.tripToUpdate.id}/thought${props.tripToUpdate.id}`, {
+// //     fetch(`https://server-fello-app.herokuapp.com/thoughts/trip${props.tripToUpdate.id}/thought${props.tripToUpdate.id}`, {
 // //       method: "DELETE",
 // //       headers: new Headers({
 // //         "Content-Type": "application/json",

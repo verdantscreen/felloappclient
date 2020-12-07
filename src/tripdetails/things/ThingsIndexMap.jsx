@@ -14,7 +14,7 @@ console.log("LINE 11 props.trips in TIM", props.trips);
 
     const fetchThings = () => {
         // if(props.trip.id !== undefined){
-            const baseUrl = `http://localhost:3001/things/trip${props.trip.id}/allthings`
+            const baseUrl = `https://server-fello-app.herokuapp.com/things/trip${props.trip.id}/allthings`
             fetch(baseUrl, {
                 method: 'GET',
                 headers: new Headers({

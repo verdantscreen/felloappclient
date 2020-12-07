@@ -15,7 +15,7 @@
 //     console.log("before prevent def")
 //     // e.preventDefault();
 //     console.log("after prevent def")
-//     fetch(`http://localhost:3001/thoughts/trip:tripid/addthought`, {
+//     fetch(`https://server-fello-app.herokuapp.com/thoughts/trip:tripid/addthought`, {
 //       method: "POST",
 //       body: JSON.stringify({
 //         thoughtdata: {

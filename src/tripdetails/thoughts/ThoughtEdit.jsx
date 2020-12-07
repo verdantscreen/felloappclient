@@ -19,7 +19,7 @@
 
 //   const tripUpdate = (event, trip) => {
 //     // event.preventDefault();
-//     fetch(`http://localhost:3001/trip${props.tripToUpdate.id}/thought${props.tripToUpdate.id}`, {
+//     fetch(`https://server-fello-app.herokuapp.com/trip${props.tripToUpdate.id}/thought${props.tripToUpdate.id}`, {
 //       method: 'PUT',
 //       body: JSON.stringify({
 //         tripdata: {

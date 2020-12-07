@@ -13,7 +13,7 @@
 //   const [tripToUpdate, setTripToUpdate] = useState({});
 
 //   const fetchTrips = () => {
-//     fetch("http://localhost:3001/trip:tripid/allthoughts", {
+//     fetch("https://server-fello-app.herokuapp.com/trip:tripid/allthoughts", {
 //       method: 'GET',
 //       headers: new Headers({
 //         'Content-Type': 'application/json',

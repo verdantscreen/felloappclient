@@ -5,7 +5,7 @@ import ThingEdit from './ThingEdit';
 const ThingsTable = (props) => {
   
   const deleteThing = (single) => {
-  fetch(`http://localhost:3001/things/trip${props.tripId}/thing${single.id}`, {
+  fetch(`https://server-fello-app.herokuapp.com/things/trip${props.tripId}/thing${single.id}`, {
     method: "DELETE",
     headers: new Headers({
       "Content-Type": "application/json",

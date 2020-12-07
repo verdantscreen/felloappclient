@@ -13,7 +13,7 @@ console.log("LINE 11 props.trips in TIM", props.trips);
     const [placesMsg, setPlacesMsg] = useState(`You're here, now what?`);
 
     const fetchPlaces = () => {
-            const baseUrl = `http://localhost:3001/places/trip${props.trip.id}/allplaces`
+            const baseUrl = `https://server-fello-app.herokuapp.com/places/trip${props.trip.id}/allplaces`
             fetch(baseUrl, {
                 method: 'GET',
                 headers: new Headers({

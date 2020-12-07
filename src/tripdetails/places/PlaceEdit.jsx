@@ -17,7 +17,7 @@ console.log("prop", props);
     console.log("PlaceEdit before prevent def")
     e.preventDefault();
     console.log("PlaceEdit after prevent def")
-  fetch(`http://localhost:3001/places/trip${tripId}/place${props.id}`, {
+  fetch(`https://server-fello-app.herokuapp.com/places/trip${tripId}/place${props.id}`, {
       method: "PUT",
       body: JSON.stringify({
           placedata: {

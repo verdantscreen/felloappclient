@@ -5,7 +5,7 @@ import { Table, Button } from "reactstrap";
 const TripsTable = (props) => {
 
   const deleteTrip = (trip) => {
-    fetch(`http://localhost:3001/mytrips/trip${trip.id}`, {
+    fetch(`https://server-fello-app.herokuapp.com/mytrips/trip${trip.id}`, {
       method: "DELETE",
       headers: new Headers({
         "Content-Type": "application/json",

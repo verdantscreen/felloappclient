@@ -15,7 +15,7 @@ const TripIndex = (props) => {
   const [singleTrip, setSingleTrip] = useState();
 
   const fetchTrips = () => {
-    fetch("http://localhost:3001/mytrips/alltrips", {
+    fetch("https://server-fello-app.herokuapp.com/mytrips/alltrips", {
       method: 'GET',
       headers: new Headers({
         'Content-Type': 'application/json',

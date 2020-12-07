@@ -18,7 +18,7 @@ function Signup(props) {
 
   let handleSubmit = (event) => {
     event.preventDefault();
-    fetch('http://localhost:3001/user/signup', {
+    fetch('https://server-fello-app.herokuapp.com/user/signup', {
       method: 'POST',
       body: JSON.stringify({user:{name: name, email: email, password: password}}),
       headers: new Headers({
