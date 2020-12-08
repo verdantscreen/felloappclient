@@ -35,6 +35,7 @@ if(isAuth){
 
   return (
     <div className="App" style={{backgroundColor: "#f2f2e7"}}>
+      <br />
       <h1 style={{color: "#292a2b"}}>fello</h1>
       <Router >
       <Sitebar 

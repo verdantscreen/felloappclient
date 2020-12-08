@@ -36,7 +36,7 @@ const ThingsIndex = (props) => {
           {/* <h1>Things Index</h1> */}
         <h3 style={{marginTop:'50px'}}>About that trip to {props.trip.destination} :</h3>
         <br/>
-    <p style={{fontFamily:'Roboto', fontSize:'large'}}>Looks like you're heading there {props.trip.departDate} and you'll be back by {props.trip.returnDate}. <br /><br /> While you're there, you'll doubtless have Places to Go, people to see, and Thoughts you want to jot down <br /> --- not to mention Bags to Drag along with you.</p>
+    <p style={{fontFamily:'Roboto', fontSize:'large'}}>Looks like you're heading there {props.trip.departDate} and you'll be back by {props.trip.returnDate}. <br /><br /> While you're there you'll doubtless have places to go, people to see, and thoughts you want to jot down <br /> --- not to mention bags to drag along with you.</p>
         {/* {trips.map((singleTrip, index)=>{
        return  */}
        <ThingsIndexMap 

@@ -103,7 +103,7 @@ toggle={editModalToggle}
               onChange={(e) => setEditQuantity(e.target.value)}
             />
           </FormGroup>
-          <FormGroup>
+          {/* <FormGroup>
             <Label htmlFor='Packed'>Edit Packed:</Label>
             <Input
               name='Packed'
@@ -118,7 +118,7 @@ toggle={editModalToggle}
             value={editRepacked}
             onChange={(e) => setEditRepacked(e.target.value)}
           />
-        </FormGroup>
+        </FormGroup> */}
           <Button type="submit" 
           style={{backgroundColor: '#ff7f50',
           color: '#292a2b',

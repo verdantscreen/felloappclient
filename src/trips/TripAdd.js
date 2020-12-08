@@ -56,7 +56,7 @@ console.log("ln 6 TripAdd props.token", props.token);
           <Label htmlFor="destination">Destination Known:</Label>
           <Input
           required
-          style={{fontFamily:'Roboto', fontSize: 'medium'}}
+          style={{fontFamily:'Roboto', fontSize: 'small'}}
             name="destination"
             value={destination}
             onChange={(e) => setDestination(e.target.value)}
@@ -86,7 +86,7 @@ console.log("ln 6 TripAdd props.token", props.token);
         <FormGroup>
           <Label htmlFor="companions">Travel Buddies:</Label>
           <Input
-            style={{fontFamily: 'Roboto'}}
+            style={{fontFamily: 'Roboto', fontSize:'small'}}
             name="companions"
             value={companions}
             onChange={(e) => setCompanions(e.target.value)}
@@ -95,7 +95,7 @@ console.log("ln 6 TripAdd props.token", props.token);
         <FormGroup>
           <Label htmlFor="occasion">What Brings You Here?:</Label>
           <Input
-          style={{fontFamily: 'Roboto'}}
+          style={{fontFamily: 'Roboto', fontSize:'small'}}
             type="select"
             name="occasion"
             value={occasion}
