@@ -11,7 +11,7 @@ function Landing() {
             <Card body className="ml-auto mr-auto mt-3 col-8" style={{backgroundColor: "#f2f2e7", color:"#292a2b", textAlign: "center"}}>
                 <Row style={{backgroundColor: "#f2f2e7", color:"#292a2b", textAlign: "center"}}>
                 <Col className="card overflow-auto ml-auto mr-auto col-11" style={{backgroundColor: "#f2f2e7", color:"#292a2b", textAlign: "center"}}>
-                      <p style={{marginTop: '5px', fontFamily: 'Roboto'}}>Log your past, present, and future trips including destinations, dates, companions, and occasions. Add a unique packing list for each destination so you don't leave anything behind.</p>
+                      <p style={{marginTop: '5px', fontFamily: 'Roboto'}}>Log your past, present, and future trips including destinations, dates, companions, and occasions. <br />Add a unique packing list for each destination so you don't leave anything behind!</p>
                     </Col>
                     {/* <Col className="card overflow-auto ml-auto mr-auto col-4" style={{backgroundColor: "#f2f2e7", color:"#292a2b", textAlign: "center"}}>
                       <p>Manage your packed items on the way there and back.</p>
