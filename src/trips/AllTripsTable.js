@@ -89,6 +89,8 @@ const TripsTable = (props) => {
         </thead>
         <tbody>{tripMap()}</tbody>
       </Table>
+      <br />
+  <br />
     </>
   )
 }

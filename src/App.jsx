@@ -76,6 +76,8 @@ if(isAuth){
       setIsAuth={setIsAuth}/>
       <Landing/>
       </div>
+      <br />
+      <br />
     </Router>
   )
 }

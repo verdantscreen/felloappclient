@@ -99,6 +99,8 @@ const TripIndex = (props) => {
    /> */}
   </Row>
   </Container>
+  <br />
+  <br />
   </div>
   ) : (
     <div>
@@ -131,6 +133,8 @@ const TripIndex = (props) => {
           <></>}
       </Row>
     </Container>
+    <br />
+  <br />
      </div>
   )
 }

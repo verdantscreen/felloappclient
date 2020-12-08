@@ -65,7 +65,6 @@ console.log("ln 6 TripAdd props.token", props.token);
         <FormGroup>
           <Label htmlFor="departDate">Get Outta Town:</Label>
           <Input
-          required
             style={{textAlign:"right", fontFamily:'Roboto', fontSize:'small', fontWeight:'bolder'}}
             type="date"
             name="departDate"
@@ -77,7 +76,6 @@ console.log("ln 6 TripAdd props.token", props.token);
         <FormGroup>
           <Label htmlFor="returnDate">Back Home Again:</Label>
           <Input
-          required
             style={{textAlign:"right", fontFamily: 'Roboto', fontSize:'small', fontWeight:'bolder'}}
             type="date"
             name="returnDate"
@@ -124,6 +122,8 @@ console.log("ln 6 TripAdd props.token", props.token);
                 }} id="buttonHover" 
         >Log Trip</Button>
       </Form>
+      <br />
+      <br />
     </>
   );
 };
