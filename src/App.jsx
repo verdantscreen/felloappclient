@@ -60,7 +60,7 @@ if(isAuth){
             {/* <Route exact path="/tripdetails"> <TripDetailsDisplay token={token} setToken={setToken} isAuth={isAuth}/></Route> */}
       </Switch>
       </Router>
-      {/* <Landing/> */}
+      <h1 style={{color: "#292a2b"}}>fello</h1>
     </div>
   );
 } else {
