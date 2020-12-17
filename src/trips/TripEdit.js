@@ -57,6 +57,7 @@ const TripEdit = (props) => {
           <FormGroup>
             <Label htmlFor='departDate'>Edit Depart Date:</Label>
             <Input
+              // type="date"
               name='departDate'
               value={editDepartDate}
               onChange={(e) => setEditDepartDate(e.target.value)}
@@ -65,6 +66,7 @@ const TripEdit = (props) => {
           <FormGroup>
             <Label htmlFor='returnDate'>Edit Return Date:</Label>
             <Input
+              // type="date"
               name='returnDate'
               value={editReturnDate}
               onChange={(e) => setEditReturnDate(e.target.value)}

@@ -62,10 +62,12 @@ if(isAuth){
       </Switch>
       </Router>
       {/* <Landing/> */}
+      {/* <footer style={{backgroundColor: "rgba(255,127,80,0.25)", color: "rgba(255,127,80)", padding: "10px"}}>created by Jenat Heneghan</footer> */}
     </div>
   );
 } else {
   return(
+    <div>
     <Router >
       <div className="App" style={{backgroundColor: "#f2f2e7"}}>
       <h1 style={{color: "#292a2b"}}>fello</h1>
@@ -80,6 +82,8 @@ if(isAuth){
       <br />
       <br />
     </Router>
+    {/* <footer style={{backgroundColor: "rgba(255,127,80,0.25)", color: "rgba(255,127,80)", padding: "10px"}}>created by Jenat Heneghan</footer> */}
+    </div>
   )
 }
 }
