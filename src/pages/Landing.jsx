@@ -19,7 +19,7 @@ function Landing() {
                       <Card style={{height: "45vh", backgroundColor: "#f2f2e7", color:"#292a2b", border:"double"}}>
                         <CardBody>
                           {/* <CardTitle tag="h5">Pack Your Things</CardTitle> */}
-                          <CardText style={{fontFamily: 'Roboto'}}>Manage your travel items with a unique list for each trip so nothing gets left behind - <br/>on the way there or back!</CardText>
+                          <CardText style={{fontFamily: 'Roboto'}}>Organize travel essentials with a unique list for each trip so nothing gets left behind - <br/>on the way there or back!</CardText>
                         </CardBody>
                         <CardImg bottom width="100%" height="75%" src="../../assets/packlistsq.png" alt="Packlist image cap" />
                       </Card>
